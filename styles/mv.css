@@ -183,51 +183,88 @@
 @media screen and (max-width: 900px) {
   .mv {
     height: clamp(300px, 60vw, 400px);
+    position: relative;
   }
-  .mv__bg {
-    background-image: url('../assets/Mobile.png') !important;
-  }
+  
+  /* Hide content except overlay and white strips on mobile */
+  .mv__description-text,
   .mv__content {
-    padding: 40px 0 0 20px;
+    display: none !important;
   }
-  .mv__rectangle-img {
-    max-width: clamp(350px, 70vw, 550px);
-    max-height: clamp(175px, 35vw, 310px);
+  
+  /* Show white strips on mobile */
+  .mv__white-strips {
+    display: block !important;
+    z-index: 15;
   }
   .mv__white-strip {
+    display: flex !important;
     height: clamp(50px, 8vw, 60px);
+    background: white;
+    position: absolute;
+    left: 0;
+    align-items: center;
+    box-sizing: border-box;
   }
   .mv__white-strip--top {
-    top: clamp(50px, 8vw, 60px);
-    width: clamp(280px, 45vw, 350px);
+    top: clamp(180px, 35vw, 220px);
+    width: clamp(220px, 35vw, 280px);
   }
   .mv__white-strip--bottom {
-    top: clamp(120px, 18vw, 140px);
-    width: clamp(320px, 50vw, 400px);
+    top: clamp(250px, 45vw, 290px);
+    width: clamp(220px, 35vw, 280px);
   }
   .mv__strip-text {
-    left: clamp(40px, 7.5vw, 60px);
-    right: clamp(15px, 2.5vw, 20px);
-    font-size: clamp(18px, 3vw, 24px);
-  }
-  .mv__white-strip--top .mv__strip-text {
-    right: clamp(2px, 0.2vw, 4px);
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    font-size: clamp(24px, 5vw, 32px);
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #000;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   .mv__white-strip--bottom .mv__strip-text {
-    right: clamp(8px, 1.25vw, 10px);
+    left: 35px;
+    right: 5px;
   }
-  .mv__description-text {
-    bottom: clamp(15px, 2.5vw, 20px);
-    left: clamp(15px, 2.5vw, 20px);
+  .mv__strip-highlight {
+    color: #FF7300;
   }
-  .mv__description-text span {
-    font-size: clamp(10px, 1.75vw, 14px);
+  
+  /* Show the mobile view image */
+  .mv__bg {
+    background-image: url('../assets/mobile view.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
-  .mv__title,
-  .mv__subtitle {
-    font-size: clamp(24px, 4vw, 32px);
+  
+  /* Keep the orange overlay for mobile */
+  .mv__overlay {
+    display: block;
+    background: rgba(234, 144, 74, 0.4);
   }
-  .mv__description {
-    font-size: clamp(10px, 1.75vw, 14px);
+  
+  /* Add mobile overlay image attached to left */
+  .mv::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90vw;
+    height: 80vw;
+    background-image: url('../assets/mobilejskjd.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top left;
+    z-index: 10;
   }
 }
