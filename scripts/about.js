@@ -1,68 +1,169 @@
 // About/Mission JS with Carousel functionality
 
-document.addEventListener('DOMContentLoaded', function() {
-  const track = document.querySelector('.about__carousel-track');
-  const slides = document.querySelectorAll('.about__carousel-slide');
-  const nextBtn = document.querySelector('.about__carousel-nav--next');
-  const prevBtn = document.querySelector('.about__carousel-nav--prev');
-  const dots = document.querySelectorAll('.about__carousel-dot');
+function initAboutCarousel() {
+  console.log('Starting carousel initialization...');
   
-  let index = 0;
-  const slidesPerView = 4; // Show 4 slides at once
-  const totalSlides = slides.length;
-
-  // Function to update carousel position
-  function updateCarousel() {
-    const slideWidth = 100 / slidesPerView;
-    const translateX = -(index * slideWidth);
-    track.style.transform = `translateX(${translateX}%)`;
+  // More aggressive retry mechanism
+  function initCarousel() {
+    const track = document.querySelector('.about__carousel-track');
+    const slides = document.querySelectorAll('.about__carousel-slide');
+    const nextBtn = document.querySelector('.about__carousel-nav--next');
+    const prevBtn = document.querySelector('.about__carousel-nav--prev');
+    const dots = document.querySelectorAll('.about__carousel-dot');
     
-    // Update dots
-    dots.forEach(dot => dot.classList.remove('active'));
-    const activeDotIndex = Math.floor(index / slidesPerView);
-    if (dots[activeDotIndex]) {
-      dots[activeDotIndex].classList.add('active');
+    console.log('Checking elements:', {
+      track: !!track,
+      slides: slides.length,
+      nextBtn: !!nextBtn,
+      prevBtn: !!prevBtn,
+      dots: dots.length
+    });
+    
+    if (!track || !slides.length || !nextBtn || !prevBtn) {
+      console.log('Carousel elements not ready, retrying in 200ms...');
+      setTimeout(initCarousel, 200);
+      return;
     }
-  }
+    
+    console.log('Carousel initialized with', slides.length, 'slides');
+    
+    // Create circular effect by duplicating slides
+    const originalSlides = Array.from(slides);
+    const duplicatedSlides = originalSlides.map(slide => slide.cloneNode(true));
+    
+    // Add duplicated slides to the end
+    duplicatedSlides.forEach(slide => {
+      track.appendChild(slide);
+    });
+    
+    // Update slides reference to include duplicates
+    const allSlides = track.querySelectorAll('.about__carousel-slide');
+    
+    let index = 1; // Start at second slide to show circular effect on both sides
+    let slidesPerView = getSlidesPerView();
+    const totalSlides = originalSlides.length;
+    const totalAllSlides = allSlides.length;
+    let autoAdvanceTimer;
 
-  // Next button click
-  nextBtn.addEventListener('click', () => {
-    if (index < totalSlides - slidesPerView) {
-      index += slidesPerView;
-    } else {
-      index = 0; // Loop back to start
+    // Responsive slides per view
+    function getSlidesPerView() {
+      const width = window.innerWidth;
+      if (width < 768) return 1;
+      if (width < 1024) return 2;
+      if (width < 1200) return 3;
+      return 4;
     }
-    updateCarousel();
-  });
 
-  // Previous button click
-  prevBtn.addEventListener('click', () => {
-    if (index > 0) {
-      index -= slidesPerView;
-    } else {
-      index = totalSlides - slidesPerView; // Loop to end
+    // Function to update carousel position
+    function updateCarousel() {
+      const slideWidth = 100 / slidesPerView;
+      const maxIndex = Math.max(0, totalSlides - slidesPerView);
+      
+      // Ensure index is within bounds
+      if (index > maxIndex) index = maxIndex;
+      if (index < 1) index = 1;
+      
+      const translateX = -(index * slideWidth);
+      track.style.transform = `translateX(${translateX}%)`;
+      
+      // Update slide active states
+      allSlides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i >= index && i < index + slidesPerView) {
+          slide.classList.add('active');
+        }
+      });
+      
+      // Update dots
+      dots.forEach(dot => dot.classList.remove('active'));
+      const activeDotIndex = Math.floor(index / slidesPerView);
+      if (dots[activeDotIndex]) {
+        dots[activeDotIndex].classList.add('active');
+      }
+      
+      console.log('Carousel updated: index =', index, 'translateX =', translateX + '%');
     }
-    updateCarousel();
-  });
 
-  // Dot navigation
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      index = i * slidesPerView;
+    // Start auto-advance (disabled)
+    function startAutoAdvance() {
+      // Auto-advance disabled - carousel will only move on manual interaction
+      console.log('Auto-advance is disabled');
+    }
+
+    // Stop auto-advance
+    function stopAutoAdvance() {
+      if (autoAdvanceTimer) {
+        clearInterval(autoAdvanceTimer);
+        autoAdvanceTimer = null;
+      }
+    }
+
+    // Next button click
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        console.log('Next button clicked');
+        index += slidesPerView;
+        
+        // If we've reached the end of original slides, reset to second slide
+        if (index >= totalSlides) {
+          index = 1;
+        }
+        
+        updateCarousel();
+      });
+    }
+
+    // Previous button click
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        console.log('Previous button clicked');
+        index -= slidesPerView;
+        
+        // If we've gone below 1, go to the end
+        if (index < 1) {
+          index = totalSlides - slidesPerView;
+        }
+        
+        updateCarousel();
+      });
+    }
+
+    // Dot navigation
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        console.log('Dot', i, 'clicked');
+        index = (i * slidesPerView) + 1; // Add 1 to account for initial offset
+        if (index >= totalSlides) {
+          index = 1; // Reset to second slide instead of 0
+        }
+        updateCarousel();
+      });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      slidesPerView = getSlidesPerView();
       updateCarousel();
     });
-  });
 
-  // Auto-advance carousel every 5 seconds
-  setInterval(() => {
-    if (index < totalSlides - slidesPerView) {
-      index += slidesPerView;
-    } else {
-      index = 0;
-    }
+    // Initialize carousel
     updateCarousel();
-  }, 5000);
+    
+    console.log('Carousel fully initialized');
+  }
 
-  // Initialize carousel
-  updateCarousel();
-});
+  // Start initialization
+  initCarousel();
+}
+
+// Multiple initialization attempts
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAboutCarousel);
+} else {
+  initAboutCarousel();
+}
+
+// Also try after a delay for dynamic loading
+setTimeout(initAboutCarousel, 500);
+setTimeout(initAboutCarousel, 1000);
+setTimeout(initAboutCarousel, 2000);
