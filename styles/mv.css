@@ -1,9 +1,22 @@
+/* Ensure consistent rendering across environments */
+* {
+  box-sizing: border-box;
+}
+
+/* Font loading fallback */
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+  font-display: swap;
+}
+
 .mv {
   position: relative;
   width: 100%;
   height: 450px;
   overflow: hidden;
   background: #F8F7F1;
+  box-sizing: border-box;
 }
 .mv__bg {
   position: absolute;
@@ -36,14 +49,17 @@
   height: 80px;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 .mv__white-strip--top {
   top: 80px;
   width: 380px;
+  min-width: 380px;
 }
 .mv__white-strip--bottom {
   top: 180px;
   width: 400px;
+  min-width: 400px;
 }
 .mv__white-strip--bottom .mv__strip-text {
   right: 15px;
@@ -52,7 +68,7 @@
   position: absolute;
   left: 80px;
   right: 30px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 700;
   font-size: 36px;
   letter-spacing: 0.05em;
@@ -61,6 +77,11 @@
   text-align: right;
   white-space: nowrap;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .mv__strip-highlight {
   color: #FF7300;
@@ -72,7 +93,7 @@
   z-index: 4;
 }
 .mv__description-text span {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 0.05em;
@@ -108,7 +129,7 @@
   margin-left: 20px;
 }
 .mv__title {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 700;
   font-size: 48px;
   letter-spacing: 0.05em;
@@ -120,7 +141,7 @@
   color: #FF7300;
 }
 .mv__subtitle {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 700;
   font-size: 48px;
   letter-spacing: 0.05em;
@@ -132,7 +153,7 @@
   color: #FF7300;
 }
 .mv__description {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 0.05em;
@@ -141,8 +162,18 @@
   line-height: 1.4;
 }
 
+/* Tablet and below */
+@media screen and (max-width: 1024px) {
+  .mv {
+    height: 400px;
+  }
+  .mv__strip-text {
+    font-size: 32px;
+  }
+}
+
 /* Mobile styles */
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .mv__bg {
     background-image: url('../assets/Mobile.png') !important;
   }
