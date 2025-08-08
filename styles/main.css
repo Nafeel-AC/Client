@@ -342,9 +342,11 @@ body {
   }
 }
 
-/* Desktop: hide toggle, normal inline nav */
+/* Desktop: hide toggle and close button, normal inline nav */
 @media (min-width: 901px) {
   .header__menu-toggle { display: none; }
+  .header__nav-close { display: none; }
+}
   .header__nav { 
     position: static; 
     background: transparent; 
