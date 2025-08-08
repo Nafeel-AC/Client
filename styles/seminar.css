@@ -353,7 +353,7 @@
   .seminar__carousel-container {
     overflow: hidden;
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
     margin: 0 auto;
     padding: 0;
   }
@@ -390,18 +390,18 @@
   }
   
   .seminar__card-info {
-    width: 180px;
+    width: 160px;
     margin: 0;
   }
   
   .seminar__card-content {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    padding: 8px 0;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: auto;
+    padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
   
   .seminar__cta-btn {
