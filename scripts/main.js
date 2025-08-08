@@ -19,10 +19,17 @@ sections.forEach(section => {
   const scriptPath = `scripts/${section}.js`;
   fetch(scriptPath).then(res => {
     if (res.ok) {
+      console.log(`Loading script: ${scriptPath}`);
       const script = document.createElement('script');
       script.src = scriptPath;
+      script.onload = () => console.log(`Script loaded: ${scriptPath}`);
+      script.onerror = () => console.error(`Script failed to load: ${scriptPath}`);
       document.body.appendChild(script);
+    } else {
+      console.log(`Script not found: ${scriptPath}`);
     }
+  }).catch(err => {
+    console.error(`Error loading script ${scriptPath}:`, err);
   });
 });
 
