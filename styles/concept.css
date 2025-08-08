@@ -229,17 +229,17 @@
 
 .concept__feature--1 .concept__feature-number {
   left: 40px;
-  top: 0;
+  top: -50px;
 }
 
 .concept__feature--2 .concept__feature-number {
   right: 40px;
-  top: 0;
+  top: -50px;
 }
 
 .concept__feature--3 .concept__feature-number {
   left: 40px;
-  top: 0;
+  top: -50px;
 }
 
 .concept__number-label {
