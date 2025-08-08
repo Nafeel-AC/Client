@@ -13,7 +13,9 @@
 .mv {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 30vw;
+  min-height: 400px;
+  max-height: 500px;
   overflow: hidden;
   background: #F8F7F1;
   box-sizing: border-box;
@@ -46,31 +48,32 @@
   position: absolute;
   background: white;
   left: 0;
-  height: 80px;
+  height: clamp(60px, 5.3vw, 80px);
   display: flex;
   align-items: center;
   box-sizing: border-box;
 }
 .mv__white-strip--top {
-  top: 80px;
-  width: 380px;
-  min-width: 380px;
+  top: clamp(60px, 5.3vw, 80px);
+  width: clamp(400px, 32vw, 480px);
 }
 .mv__white-strip--bottom {
-  top: 180px;
-  width: 400px;
-  min-width: 400px;
+  top: clamp(160px, 12vw, 180px);
+  width: clamp(450px, 36vw, 540px);
+}
+.mv__white-strip--top .mv__strip-text {
+  right: clamp(3px, 0.3vw, 5px);
 }
 .mv__white-strip--bottom .mv__strip-text {
   right: 15px;
 }
 .mv__strip-text {
   position: absolute;
-  left: 80px;
-  right: 30px;
+  left: clamp(60px, 5.3vw, 80px);
+  right: clamp(20px, 2vw, 30px);
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(24px, 2.4vw, 36px);
   letter-spacing: 0.05em;
   color: #000;
   line-height: 1.2;
@@ -88,14 +91,14 @@
 }
 .mv__description-text {
   position: absolute;
-  bottom: 40px;
-  left: 30px;
+  bottom: clamp(20px, 2.7vw, 40px);
+  left: clamp(20px, 2vw, 30px);
   z-index: 4;
 }
 .mv__description-text span {
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: clamp(12px, 1.1vw, 16px);
   letter-spacing: 0.05em;
   color: #fff;
   line-height: 1.4;
@@ -118,8 +121,8 @@
 .mv__rectangle-img {
   width: auto;
   height: auto;
-  max-width: 850px;
-  max-height: 425px;
+  max-width: clamp(600px, 65vw, 1000px);
+  max-height: clamp(300px, 32.5vw, 500px);
   display: block;
 }
 .mv__text-content {
@@ -162,63 +165,69 @@
   line-height: 1.4;
 }
 
+/* Large Desktop - maintain proportions */
+@media screen and (min-width: 1600px) {
+  .mv {
+    height: 28vw;
+  }
+}
+
 /* Tablet and below */
 @media screen and (max-width: 1024px) {
   .mv {
-    height: 400px;
-  }
-  .mv__strip-text {
-    font-size: 32px;
+    height: clamp(350px, 35vw, 450px);
   }
 }
 
 /* Mobile styles */
 @media screen and (max-width: 900px) {
+  .mv {
+    height: clamp(300px, 60vw, 400px);
+  }
   .mv__bg {
     background-image: url('../assets/Mobile.png') !important;
   }
   .mv__content {
     padding: 40px 0 0 20px;
   }
-  .mv__rectangle-overlay {
-    top: 0;
-    right: 0;
-  }
   .mv__rectangle-img {
-    max-width: 475px;
-    max-height: 265px;
+    max-width: clamp(350px, 70vw, 550px);
+    max-height: clamp(175px, 35vw, 310px);
   }
   .mv__white-strip {
-    height: 60px;
+    height: clamp(50px, 8vw, 60px);
   }
   .mv__white-strip--top {
-    top: 60px;
-    width: 280px;
+    top: clamp(50px, 8vw, 60px);
+    width: clamp(280px, 45vw, 350px);
   }
   .mv__white-strip--bottom {
-    top: 140px;
-    width: 300px;
+    top: clamp(120px, 18vw, 140px);
+    width: clamp(320px, 50vw, 400px);
   }
   .mv__strip-text {
-    left: 60px;
-    right: 20px;
-    font-size: 24px;
+    left: clamp(40px, 7.5vw, 60px);
+    right: clamp(15px, 2.5vw, 20px);
+    font-size: clamp(18px, 3vw, 24px);
+  }
+  .mv__white-strip--top .mv__strip-text {
+    right: clamp(2px, 0.2vw, 4px);
   }
   .mv__white-strip--bottom .mv__strip-text {
-    right: 10px;
+    right: clamp(8px, 1.25vw, 10px);
   }
   .mv__description-text {
-    bottom: 20px;
-    left: 20px;
+    bottom: clamp(15px, 2.5vw, 20px);
+    left: clamp(15px, 2.5vw, 20px);
   }
   .mv__description-text span {
-    font-size: 14px;
+    font-size: clamp(10px, 1.75vw, 14px);
   }
   .mv__title,
   .mv__subtitle {
-    font-size: 32px;
+    font-size: clamp(24px, 4vw, 32px);
   }
   .mv__description {
-    font-size: 14px;
+    font-size: clamp(10px, 1.75vw, 14px);
   }
 }
