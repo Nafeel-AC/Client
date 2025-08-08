@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
           break;
         default:
           // For any other links, you can add custom navigation logic
-          console.log(`Navigating to: ${linkText}`);
+    
           break;
       }
     });
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     privacyLink.addEventListener('click', function(e) {
       e.preventDefault();
       // Add privacy policy navigation logic here
-      console.log('Privacy Policy clicked');
+  
       // Example: window.location.href = '/privacy-policy';
     });
   }

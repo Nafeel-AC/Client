@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 150);
 
       // Handle news item click (you can add navigation logic here)
-      console.log(`News item ${index + 1} clicked`);
+
       
       // Example: Navigate to news detail page
       // window.location.href = `/news/${index + 1}`;

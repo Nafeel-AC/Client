@@ -1,7 +1,6 @@
 // About/Mission JS with Carousel functionality
 
 function initAboutCarousel() {
-  console.log('Starting carousel initialization...');
   
   // More aggressive retry mechanism
   function initCarousel() {
@@ -11,21 +10,12 @@ function initAboutCarousel() {
     const prevBtn = document.querySelector('.about__carousel-nav--prev');
     const dots = document.querySelectorAll('.about__carousel-dot');
     
-    console.log('Checking elements:', {
-      track: !!track,
-      slides: slides.length,
-      nextBtn: !!nextBtn,
-      prevBtn: !!prevBtn,
-      dots: dots.length
-    });
+
     
     if (!track || !slides.length || !nextBtn || !prevBtn) {
-      console.log('Carousel elements not ready, retrying in 200ms...');
       setTimeout(initCarousel, 200);
       return;
     }
-    
-    console.log('Carousel initialized with', slides.length, 'slides');
     
     // Create circular effect by duplicating slides
     const originalSlides = Array.from(slides);
@@ -81,13 +71,12 @@ function initAboutCarousel() {
         dots[activeDotIndex].classList.add('active');
       }
       
-      console.log('Carousel updated: index =', index, 'translateX =', translateX + '%');
+
     }
 
     // Start auto-advance (disabled)
     function startAutoAdvance() {
       // Auto-advance disabled - carousel will only move on manual interaction
-      console.log('Auto-advance is disabled');
     }
 
     // Stop auto-advance
@@ -101,7 +90,6 @@ function initAboutCarousel() {
     // Next button click
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        console.log('Next button clicked');
         index += slidesPerView;
         
         // If we've reached the end of original slides, reset to second slide
@@ -116,7 +104,6 @@ function initAboutCarousel() {
     // Previous button click
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        console.log('Previous button clicked');
         index -= slidesPerView;
         
         // If we've gone below 1, go to the end
@@ -131,7 +118,6 @@ function initAboutCarousel() {
     // Dot navigation
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => {
-        console.log('Dot', i, 'clicked');
         index = (i * slidesPerView) + 1; // Add 1 to account for initial offset
         if (index >= totalSlides) {
           index = 1; // Reset to second slide instead of 0
@@ -148,8 +134,6 @@ function initAboutCarousel() {
 
     // Initialize carousel
     updateCarousel();
-    
-    console.log('Carousel fully initialized');
   }
 
   // Start initialization

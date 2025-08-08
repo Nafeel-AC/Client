@@ -32,23 +32,16 @@ function initMobileMenu() {
   const nav = document.getElementById('headerNav');
   const closeBtn = document.querySelector('.header__nav-close');
   
-  console.log('Looking for mobile menu elements...');
-  console.log('Toggle found:', !!toggle);
-  console.log('Nav found:', !!nav);
-  console.log('Close button found:', !!closeBtn);
+
   
   if (!toggle || !nav) {
-    console.log('Mobile menu elements not found, retrying...');
     return false;
   }
-
-  console.log('Mobile menu elements found, setting up event listeners...');
 
   function setExpanded(expanded) {
     toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     nav.classList.toggle('is-open', expanded);
     document.body.style.overflow = expanded ? 'hidden' : '';
-    console.log('Menu state changed to:', expanded ? 'OPEN' : 'CLOSED');
   }
 
   // Remove any existing listeners first
@@ -58,7 +51,6 @@ function initMobileMenu() {
   toggle.clickHandler = function(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Hamburger clicked!');
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
     setExpanded(!isOpen);
   };
@@ -70,7 +62,6 @@ function initMobileMenu() {
     closeBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      console.log('Close button clicked!');
       setExpanded(false);
     });
   }
@@ -79,7 +70,6 @@ function initMobileMenu() {
   nav.addEventListener('click', (e) => {
     const link = e.target.closest('a');
     if (link && link.classList.contains('header__nav-link')) {
-      console.log('Navigation link clicked, closing menu');
       setExpanded(false);
     }
   });
@@ -87,12 +77,10 @@ function initMobileMenu() {
   // Close on ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      console.log('ESC pressed, closing menu');
       setExpanded(false);
     }
   });
   
-  console.log('Mobile menu initialized successfully!');
   return true;
 }
 
@@ -100,17 +88,13 @@ function initMobileMenu() {
 let retryCount = 0;
 function tryInit() {
   retryCount++;
-  console.log(`Attempting to initialize mobile menu (attempt ${retryCount})...`);
   
   if (initMobileMenu()) {
-    console.log('Mobile menu initialization successful!');
     return;
   }
   
   if (retryCount < 10) {
     setTimeout(tryInit, 500);
-  } else {
-    console.log('Failed to initialize mobile menu after 10 attempts');
   }
 }
 

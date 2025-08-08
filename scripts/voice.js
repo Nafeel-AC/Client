@@ -1,11 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+function initVoiceSection() {
   const voiceSection = document.querySelector('.voice');
-  if (!voiceSection) return;
+  if (!voiceSection) {
+    setTimeout(initVoiceSection, 100);
+    return;
+  }
 
   // Navigation elements
   const prevBtn = voiceSection.querySelector('.voice__nav-btn--prev');
   const nextBtn = voiceSection.querySelector('.voice__nav-btn--next');
   const paginationDots = voiceSection.querySelectorAll('.voice__pagination-dot');
+  
+
   
   // Testimonial content elements
   const testimonialImage = voiceSection.querySelector('.voice__image');
@@ -16,51 +21,51 @@ document.addEventListener('DOMContentLoaded', function() {
   // Sample testimonial data
   const testimonials = [
     {
-      image: 'assets/business-people-using-tablet-pc.jpg',
-      title: 'タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。',
-      name: '名前　太郎様',
-      body: 'テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。'
+      image: 'assets/asian-businessman-phone.jpg',
+      title: 'リファラルリクルーティングで最高の仲間を見つけることができました',
+      name: '田中　太郎様',
+      body: '採用に悩んでいた時に、リファラルリクルーティングという手法に出会いました。従来の採用方法とは全く違い、社員の紹介を通じて本当に優秀な人材と出会うことができました。特に、社内の雰囲気や仕事の内容をよく理解した上で紹介してくれるので、ミスマッチが少なく、すぐに戦力として活躍してくれています。'
     },
     {
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=464&h=320&fit=crop',
+      image: 'assets/close-up-two-business-woman-looking-with-paper-document-together-while-walking-office-business-people-concept.jpg',
       title: '素晴らしいサービスでした。とても満足しています。',
-      name: '名前　花子様',
+      name: '佐藤　花子様',
       body: '利用させていただいて本当に良かったです。スタッフの方々も親切で、安心してサービスを受けることができました。また機会があれば利用したいと思います。'
     },
     {
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=464&h=320&fit=crop',
+      image: 'assets/closeup-smiling-coworkers-using-tablet-outdoors.jpg',
       title: '期待以上の結果を得ることができました。',
-      name: '名前　次郎様',
+      name: '山田　次郎様',
       body: '最初は不安でしたが、実際に利用してみると期待以上の結果を得ることができました。プロフェッショナルな対応に感謝しています。'
     },
     {
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=464&h=320&fit=crop',
+      image: 'assets/content-business-man-texting-phone-cafe.jpg',
       title: '丁寧で親切なサービスに感動しました。',
-      name: '名前　美咲様',
+      name: '鈴木　美咲様',
       body: '細かいところまで気を配ってくださり、本当に感動しました。おかげさまで目標を達成することができました。ありがとうございました。'
     },
     {
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=464&h=320&fit=crop',
+      image: 'assets/business-meeting-1.jpg',
       title: '信頼できるパートナーとして選んで良かったです。',
-      name: '名前　健一様',
+      name: '高橋　健一様',
       body: '長期的なサポートをしていただき、信頼できるパートナーとして選んで良かったと実感しています。今後もよろしくお願いします。'
     },
     {
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=464&h=320&fit=crop',
+      image: 'assets/business-team-2.jpg',
       title: '専門的な知識と経験に基づく提案が素晴らしかったです。',
-      name: '名前　恵子様',
+      name: '渡辺　恵子様',
       body: '専門的な知識と豊富な経験に基づく提案は、私たちの課題を解決するのに非常に効果的でした。感謝の気持ちでいっぱいです。'
     },
     {
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=464&h=320&fit=crop',
+      image: 'assets/business-presentation-3.jpg',
       title: '迅速で的確な対応に感謝しています。',
-      name: '名前　正男様',
+      name: '中村　正男様',
       body: '緊急の対応が必要でしたが、迅速で的確な対応をしていただき、本当に助かりました。プロフェッショナルな仕事ぶりに感心しました。'
     },
     {
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=464&h=320&fit=crop',
+      image: 'assets/business-handshake-4.jpg',
       title: '長期的な関係を築くことができました。',
-      name: '名前　由美様',
+      name: '小林　由美様',
       body: '単発のサービスではなく、長期的な関係を築くことができました。継続的なサポートにより、着実に成果を上げることができています。'
     }
   ];
@@ -151,4 +156,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize
   updatePagination();
-});
+}
+
+// Multiple initialization attempts
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVoiceSection);
+} else {
+  initVoiceSection();
+}
+
+// Also try after a delay for dynamic loading
+setTimeout(initVoiceSection, 500);
+setTimeout(initVoiceSection, 1000);
+setTimeout(initVoiceSection, 2000);
