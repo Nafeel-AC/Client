@@ -1,0 +1,946 @@
+    .main {
+        .sec-header {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 7px 70px;
+            background-color: #8b6b2f;
+            height: 100px;
+            @include pc {
+                padding: 7rem 70rem;
+                height: 100rem;
+            }
+            @include sp {
+                padding: 5rem 70rem;
+                height: 400rem;
+            }
+            &-container {
+                flex-direction: column;
+                align-items: center;
+                margin: auto;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                @include pc {
+                    display: flex;
+                }
+                @include sp {
+                    display: flex;
+                    flex-direction: column;
+                }
+                &-logo {
+                    width: 300px;
+                    height: auto;
+                    @include pc {
+                        width: 300rem;
+                    }
+                    @include sp {
+                        width: 360rem;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+                &-nav {
+                    width: 100%;
+                    padding-inline: 50rem;
+                    @include sp {
+                        display: none;
+                    }
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        li {
+                            display: inline;
+                        }
+                        a {
+                            color: #fff;
+                            font-size: 15px;
+                            font-weight: 300;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            @include pc {
+                                font-size: 15rem;
+                            }
+                            @include sp {
+                                font-size: 15rem;
+                            }
+                        }
+                    }
+                }
+                &-info {
+                    display: flex;
+                    @include pc {}
+                    @include sp {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 30rem;
+                        padding-top: 50rem;
+                    }
+                    &-button {
+                        button {
+                            background-color: unset;
+                            padding: 6rem 15rem;
+                            border-radius: 7rem;
+                            width: 160px;
+                            height: 40px;
+                            @include pc {
+                                border-radius: 7rem;
+                                width: 160rem;
+                                height: 40rem;
+                            }
+                            @include sp {
+                                border-radius: 15rem;
+                                width: 320rem;
+                                height: 70rem;
+                            }
+                        }
+                        display: flex;
+                        gap: 10rem;
+                        @include pc {
+                            gap: 10rem;
+                        }
+                        @include sp {
+                            gap: 30rem;
+                        }
+                    }
+                    &-first {
+                        font-size: 14px;
+                        letter-spacing: 4rem;
+                        @include pc {
+                            font-size: 15rem;
+                            letter-spacing: 4rem;
+                        }
+                        @include sp {
+                            font-size: 30rem;
+                            letter-spacing: 15rem;
+                        }
+                        border: 2rem solid #ffffff;
+                        cursor: pointer;
+                        color:#fff;
+                    }
+                    &-second {
+                        font-size: 15px;
+                        @include pc {
+                            font-size: 15rem;
+                        }
+                        @include sp {
+                            font-size: 30rem;
+                            // margin-top: 120rem;
+                        }
+                        border: 2rem solid #ffffff;
+                        cursor: pointer;
+                        color:#fff;
+                    }
+                    &-group {
+                        .dropdown_color {
+                            background-color: unset;
+                            button {
+                                background-color: unset;
+                                div {
+                                    background-color: #fff;
+                                }
+                            }
+                        }
+                        width: 200px;
+                        justify-content: center;
+                        p:nth-of-type(1) {
+                            font-size: 17rem;
+                        }
+                        p:nth-of-type(2) {
+                            font-size: 14rem;
+                        }
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        color:#fff;
+                        @include pc {
+                            p:nth-of-type(1) {
+                                font-size: 17rem;
+                            }
+                            p:nth-of-type(2) {
+                                font-size: 14rem;
+                            }
+                            font-size: 14rem;
+                            flex-direction: column;
+                            width: 200rem;
+                        }
+                        @include sp {
+                            p:nth-of-type(1) {
+                                font-size: 30rem;
+                            }
+                            p:nth-of-type(2) {
+                                font-size: 18rem;
+                            }
+                            flex-direction: row;
+                            gap: 30rem;
+                            font-size: 30rem;
+                            width: 400rem;
+                        }
+                        align-items: center;
+                        &-phone {
+                            font-family: "HiraginoSans", sans-serif;
+                            font-size: 20px;
+                            @include pc {
+                                font-size: 20rem;
+                            }
+                            @include sp {
+                                font-size: 25rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .sec-catchphrase {
+            display: flex;
+            width: 100%;
+            height: auto;
+            color: #fff;
+            font-family: "HiraMinPro W3-83pv-RKSJ-H", sans-serif;
+            @include pc {
+                height: 500rem;
+            }
+            @include sp {
+                height: 500rem;
+            }
+            // -------------start_common_structure-------------
+            .title {
+                display: flex;
+                align-items: center;
+                padding-inline: 10rem;
+                p {
+                    font-size: 50px;
+                    @include pc {
+                        font-size: 50rem;
+                    }
+                    @include sp {}
+                }
+                .title_direction {
+                    width: 70%;
+                    display: flex;
+                    justify-content: center;
+                }
+                .green_direction {
+                    background: url(../img/third_page/green_direction.png);
+                }
+                .purple_direction {
+                    background: url(../img/third_page/purple_direction.png);
+                }
+                .yellow_direction {
+                    background: url(../img/third_page/yellow_direction.png);
+                }
+                .image_direction {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    height: 44px;
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 15px;
+                    @include pc {
+                        height: 44rem;
+                        font-size: 15rem;
+                    }
+                    @include sp {}
+                }
+            }
+            // -------------end_common_structure-------------
+            &-first {
+                background: url(../img/third_page/third_01.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                height: 500px;
+                width: 100%;
+                padding: 20rem 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                @include pc {
+                    height: 500rem;
+                }
+                @include sp {}
+            }
+            &-second {
+                background: url(../img/third_page/third_02.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                height: 500px;
+                width: 100%;
+                padding: 20rem 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                @include pc {
+                    height: 500rem;
+                }
+                @include sp {}
+            }
+            &-third {
+                background: url(../img/third_page/third_03.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                height: 500px;
+                width: 100%;
+                padding: 20rem 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                @include pc {
+                    height: 500rem;
+                }
+                @include sp {}
+            }
+        }
+    }
+    
+    .sec-intro {
+        position: relative;
+        &-on {
+            display: flex;
+            justify-content: center;
+            .room_center {
+                margin-top: 60px;
+                width: 60%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                @include pc {
+                    margin-top: 60rem;
+                    width: 60%;
+                }
+                @include sp {
+                    margin-top: 60rem;
+                    width: 100%;
+                }
+                .modea2 {
+                    background: url(../img/modea2.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 70px;
+                    width: 320px;
+                    // flex-direction: column;
+                    @include pc {
+                        height: 70rem;
+                        width: 310rem;
+                    }
+                    @include sp {
+                        height: 120rem;
+                        width: 530rem;
+                    }
+                    h1 {
+                        text-align: center;
+                        font-size: 14px;
+                        // font-weight: bold;
+                        margin-top: 10rem;
+                        @include pc {
+                            font-size: 15rem;
+                        }
+                        @include sp {
+                            font-size: 40rem;
+                        }
+                    }
+                }
+                .contain {
+                    margin-top: 15px;
+                    p {
+                        font-size: 9px;
+                        @include pc {
+                            font-size: 11rem;
+                        }
+                        @include sp {
+                            font-size: 32rem;
+                        }
+                    }
+                    @include pc {
+                        margin-top: 15rem;
+                    }
+                    @include sp {
+                        margin-top: 20rem;
+                    }
+                }
+            }
+        }
+        &-content {
+            margin-top: 15px;
+            padding-inline: 20px;
+            @include pc {
+                margin-top: 15rem;
+                padding-inline: 20rem;
+            }
+            @include sp {
+                margin-top: 10rem;
+                padding-inline: 20rem;
+            }
+            &-img {
+                // width: 100%;
+                // display: flex;
+                @include pc {
+                    // display: flex;
+                }
+                @include sp {
+                    // flex-direction: column;
+                }
+                .con_ {
+                    display: flex;
+                    gap: 20px;
+                    @include pc {
+                        display: flex;
+                        gap: 20rem;
+                    }
+                    @include sp {
+                        flex-direction: column;
+                    }
+                }
+                .con {
+                    margin-top: 20px;
+                    display: flex;
+                    gap: 20px;
+                    @include pc {
+                        margin-top: 20rem;
+                        gap: 20rem;
+                    }
+                    @include sp {
+                        width: 100%;
+                        gap: 20rem;
+                    }
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+                .topic {
+                    justify-content: right;
+                    margin-right: -50px;
+                    display: inline-block;
+                    padding: 10px 20px;
+                    border: 2px solid #71561d;
+                    color: #71561d;
+                    // text-decoration: none;
+                    border-radius: 25px;
+                    font-weight: bold;
+                }
+            }
+            &-first {
+                display: flex;
+                margin-top: 50px;
+                gap: 3%;
+                @include pc {
+                    display: flex;
+                }
+                @include sp {
+                    flex-direction: column;
+                }
+                .room_left {
+                    width: 53%;
+                    @include pc {
+                        width: 53%;
+                    }
+                    @include sp {
+                        width: 100%;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                    // .on_img {}
+                    .under_img {
+                        margin-top: 40px;
+                        @include pc {
+                            margin-top: 40rem;
+                        }
+                        @include sp {
+                            margin-top: 40rem;
+                        }
+                    }
+                }
+                .room_right {
+                    margin-top: -20px;
+                    width: 44%;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    @include pc {
+                        margin-top: -20rem;
+                        width: 44%;
+                    }
+                    @include sp {
+                        margin-top: 20rem;
+                        width: 100%;
+                    }
+                    .modea2 {
+                        background: url(../img/modea2.png);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 70px;
+                        width: 320px;
+                        // flex-direction: column;
+                        @include pc {
+                            height: 70rem;
+                            width: 310rem;
+                        }
+                        @include sp {
+                            height: 120rem;
+                            width: 530rem;
+                        }
+                        h1 {
+                            text-align: center;
+                            font-size: 14px;
+                            // font-weight: bold;
+                            margin-top: 10rem;
+                            @include pc {
+                                font-size: 15rem;
+                            }
+                            @include sp {
+                                font-size: 40rem;
+                            }
+                        }
+                    }
+                    .contain {
+                        margin-top: 15px;
+                        p {
+                            font-size: 9px;
+                            @include pc {
+                                font-size: 11rem;
+                            }
+                            @include sp {
+                                font-size: 32rem;
+                            }
+                        }
+                        @include pc {
+                            margin-top: 15rem;
+                        }
+                        @include sp {
+                            margin-top: 20rem;
+                        }
+                    }
+                    .room_right_img {
+                        width: 900px;
+                        height: auto;
+                        margin-right: -50px;
+                        z-index: -1;
+                        scale: 0.7;
+                        margin-top: -50px;
+                        @include pc {
+                            width: 900rem;
+                            margin-right: -50rem;
+                            margin-top: -50rem;
+                        }
+                        @include sp {
+                            width: 900rem;
+                            margin-right: -50rem;
+                            margin-top: 70rem;
+                            scale: 1.2;
+                        }
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+            &-second {
+                display: flex;
+                gap: 1%;
+                align-items: center;
+                @include pc {
+                    display: flex;
+                }
+                @include sp {
+                    flex-direction: column;
+                    margin-top: 120rem;
+                }
+                .room_left {
+                    margin-top: -20px;
+                    width: 44%;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    @include pc {
+                        margin-top: -20rem;
+                        width: 44%;
+                    }
+                    @include sp {
+                        margin-top: 20rem;
+                        width: 100%;
+                    }
+                    .modea2 {
+                        background: url(../img/modea2.png);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 70px;
+                        width: 320px;
+                        // flex-direction: column;
+                        @include pc {
+                            height: 70rem;
+                            width: 310rem;
+                        }
+                        @include sp {
+                            height: 120rem;
+                            width: 530rem;
+                        }
+                        h1 {
+                            text-align: center;
+                            font-size: 14px;
+                            // font-weight: bold;
+                            margin-top: 10rem;
+                            @include pc {
+                                font-size: 15rem;
+                            }
+                            @include sp {
+                                font-size: 40rem;
+                            }
+                        }
+                    }
+                    .contain {
+                        margin-top: 15px;
+                        p {
+                            font-size: 9px;
+                            @include pc {
+                                font-size: 11rem;
+                            }
+                            @include sp {
+                                font-size: 32rem;
+                            }
+                        }
+                        @include pc {
+                            margin-top: 15rem;
+                        }
+                        @include sp {
+                            margin-top: 20rem;
+                        }
+                    }
+                    .contain_img {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        @include pc {}
+                        @include sp {}
+                        img {
+                            width: 130px;
+                            height: auto;
+                            @include pc {
+                                width: 130rem;
+                            }
+                            @include sp {
+                                width: 350rem;
+                            }
+                        }
+                    }
+                }
+                .room_right {
+                    width: 55%;
+                    @include pc {
+                        width: 55%;
+                    }
+                    @include sp {
+                        width: 100%;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    
+    .sec-penimage {
+        margin-top: 70px;
+        @include pc {
+            margin-top: 70rem;
+        }
+        @include sp {
+            margin-top: 150rem;
+        }
+        &-on {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include pc {}
+            @include sp {
+                flex-direction: column;
+            }
+            &-left {
+                position: relative;
+                background: url(../img/third_page/note.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 350px;
+                width: 400px;
+                margin-left: -50px;
+                z-index: 1;
+                scale: 1.1;
+                @include pc {
+                    height: 350rem;
+                    width: 400rem;
+                    margin-left: -50rem;
+                }
+                @include sp {
+                    height: 785rem;
+                    width: 900rem;
+                }
+                .letters {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    color: #735700;
+                    // display: flex;
+                    // flex-direction: column;
+                    gap: 13px;
+                    @include pc {
+                        gap: 13rem;
+                    }
+                    @include sp {
+                        gap: 26rem;
+                    }
+                     :nth-of-type(1) {
+                        font-size: 17px;
+                        @include pc {
+                            font-size: 17rem;
+                        }
+                        @include sp {
+                            font-size: 34rem;
+                        }
+                    }
+                    .contain {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 3px;
+                        @include pc {
+                            gap: 3rem;
+                        }
+                        @include sp {
+                            gap: 6rem;
+                        }
+                        p {
+                            font-size: 11px;
+                            @include pc {
+                                font-size: 11rem;
+                            }
+                            @include sp {
+                                font-size: 22rem;
+                            }
+                        }
+                        img {
+                            height: 5px;
+                            margin-left: -15px;
+                            @include pc {
+                                height: 5rem;
+                                margin-left: -15rem;
+                            }
+                            @include sp {
+                                height: 5rem;
+                                margin-left: -15rem;
+                            }
+                        }
+                    }
+                }
+                &-mark {
+                    position: absolute;
+                    background: url(../img/third_page/mark.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 150px;
+                    width: 150px;
+                    margin-left: -400px;
+                    margin-top: -250px;
+                    @include pc {
+                        height: 150rem;
+                        width: 150rem;
+                        margin-left: -400rem;
+                        margin-top: -250rem;
+                    }
+                    @include sp {
+                        height: 300rem;
+                        width: 300rem;
+                        margin-left: -800rem;
+                        margin-top: -500rem;
+                    }
+                }
+            }
+            &-right {
+                background: url(../img/third_page/pencle_image_02.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 329px;
+                width: 562px;
+                z-index: -1;
+                margin-left: -10px;
+                margin-top: -50px;
+                scale: 1.1;
+                @include pc {
+                    height: 329rem;
+                    width: 562rem;
+                    margin-left: -10rem;
+                    margin-top: -50rem;
+                }
+                @include sp {
+                    height: 494rem;
+                    width: 798rem;
+                    margin-left: 0rem;
+                    margin-top: 200rem;
+                    scale: 1.5;
+                }
+                &-detail {
+                    position: absolute;
+                    background: url(../img/third_page/title_block.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    scale: 0.7;
+                    margin-top: 300px;
+                    margin-right: -375px;
+                    width: 376px;
+                    height: 172px;
+                    @include pc {
+                        margin-top: 300rem;
+                        margin-right: -375rem;
+                        width: 376rem;
+                        height: 172rem;
+                    }
+                    @include sp {
+                        margin-top: 492rem;
+                        margin-right: -490rem;
+                        width: 376rem;
+                        height: 172rem;
+                        scale: 1.1;
+                    }
+                    color: #ffffff;
+                    .letter {
+                        rotate: -11deg;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 15px;
+                        @include pc {
+                            gap: 15rem;
+                        }
+                        @include sp {}
+                        p:nth-of-type(1) {
+                            font-size: 17px;
+                            font-family: "Acumin Variable Concept", sans-serif;
+                            @include pc {
+                                font-size: 17rem;
+                            }
+                            @include sp {}
+                        }
+                        p:nth-of-type(2) {
+                            font-size: 60px;
+                            font-family: "D7MBI";
+                            font-weight: bold;
+                            @include pc {
+                                font-size: 60rem;
+                            }
+                            @include sp {}
+                        }
+                    }
+                }
+            }
+        }
+        &-under {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            .other {
+                height: 248px;
+                width: 22%;
+                @include pc {
+                    height: 248rem;
+                }
+                @include sp {}
+                img {
+                    width: 100%;
+                }
+            }
+            // .on {
+            //     display: flex;
+            //     // flex-direction: column;
+            //     @include pc {
+            //         display: flex;
+            //     }
+            //     @include sp {
+            //         flex-direction: column;
+            //     }
+            // }
+            // .under {
+            //     display: flex;
+            //     // flex-direction: column;
+            //     @include pc {
+            //         display: flex;
+            //     }
+            //     @include sp {
+            //         flex-direction: column;
+            //     }
+            // }
+            @include pc {
+                display: flex;
+                margin-top: 60rem;
+            }
+            @include sp {
+                // flex-direction: column;
+                margin-top: 300rem;
+            }
+        }
+    }
+    
+    .man_02 {
+        position: relative;
+        .man_2 {
+            position: absolute;
+            background: url(../img/third_page/man_2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 223px;
+            width: 156px;
+            margin-top: -90px;
+            margin-left: 1326px;
+            @include pc {
+                height: 223rem;
+                width: 156rem;
+                margin-top: -90rem;
+                margin-left: 1326rem;
+            }
+            @include sp {
+                height: 311rem;
+                width: 221rem;
+                margin-top: -156rem;
+                margin-left: 1257rem;
+            }
+        }
+    }

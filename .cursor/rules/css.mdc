@@ -1,0 +1,364 @@
+---
+alwaysApply: true
+---
+
+# CSS and HTML Writing Rules for Japanese Business Website
+
+## HTML Structure Rules
+
+### Semantic HTML
+- Always use semantic HTML5 elements: `<main>`, `<section>`, `<nav>`, `<header>`, `<footer>`
+- Use proper document structure with DOCTYPE, lang attribute, and meta viewport
+- Structure sections with clear hierarchy using semantic containers
+
+### Class Naming Convention (BEM-like)
+- Use hierarchical class naming: `parent-child-grandchild` pattern
+- Prefix major sections with `sec-` (e.g., `sec-header`, `sec-footer`, `sec-intro`)
+- Use descriptive English names even for Japanese content
+- Follow this pattern:
+  ```html
+  <section class="sec-header">
+    <div class="sec-header-container">
+      <div class="sec-header-container-logo">
+      <nav class="sec-header-container-nav">
+      <div class="sec-header-container-info">
+  ```
+
+### HTML Best Practices
+- Always include meaningful alt attributes for images
+- Use proper button elements for interactive elements
+- Group related navigation items in `<ul>` lists
+- Include proper meta tags for viewport and charset
+- Link external fonts and stylesheets in `<head>`
+
+## CSS/SCSS Structure Rules
+
+### File Organization
+- Use modular SCSS architecture:
+  ```
+  scss/
+  ├── base/
+  │   ├── _common.scss (reset, global styles)
+  │   ├── _config.scss (variables, mixins)
+  │   └── _typo.scss (typography)
+  ├── core/
+  │   └── _footer.scss (reusable components)
+  └── pages/
+      └── _index.scss (page-specific styles)
+  ```
+
+### Responsive Design Rules
+- Always use these responsive mixins:
+  ```scss
+  @mixin pc {
+    @media screen and (max-width: 1500px) { @content; }
+  }
+  @mixin sp {
+    @media screen and (max-width: 768px) { @content; }
+  }
+  ```
+- Include responsive styles for every component:
+  ```scss
+  .component {
+    font-size: 15px;
+    @include pc {
+      font-size: 15rem;
+    }
+    @include sp {
+      font-size: 30rem;
+    }
+  }
+  ```
+
+### CSS Custom Properties
+- Use CSS custom properties for design tokens:
+  ```scss
+  :root {
+    --g-color-base: #BDA13C;
+    --g-color-brown: #5E370F;
+    --g-color-yellow: #B99B34;
+    --g-padding-m: 80px;
+    @include pc {
+      --g-padding-m: 80rem;
+    }
+    @include sp {
+      --g-padding-m: 0;
+    }
+  }
+  ```
+
+### Unit Strategy
+- Use `rem` units for responsive scaling (1rem = 1px at base)
+- Use `px` for base font-size calculation: `font-size: calc(1 / 1500 * 100vw)`
+- Apply different units per breakpoint consistently
+
+### Component Structure
+- Use nested SCSS following BEM-like hierarchy:
+  ```scss
+  .sec-header {
+    background-color: #8b6b2f;
+    height: 100px;
+    @include pc {
+      height: 100rem;
+    }
+    @include sp {
+      height: 400rem;
+    }
+    
+    &-container {
+      display: flex;
+      width: 100%;
+      @include sp {
+        flex-direction: column;
+      }
+      
+      &-logo {
+        width: 300px;
+        @include pc {
+          width: 300rem;
+        }
+        @include sp {
+          width: 360rem;
+        }
+      }
+    }
+  }
+  ```
+
+### Typography Rules
+- Include custom font loading:
+  ```scss
+  @font-face {
+    font-family: 'TA_fuga_fude';
+    src: url('../fonts/Fuder.ttf');
+    font-weight: 400;
+  }
+  ```
+- Set proper font stacks with fallbacks
+- Use responsive typography scaling
+
+### CSS Reset and Common Patterns
+- Always include comprehensive CSS reset:
+  ```scss
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  ```
+- Hide scrollbars consistently across browsers
+- Include container class with responsive max-width
+
+## Image and Asset Rules
+- Organize images by purpose in subdirectories
+- Use background images for decorative elements
+- Include proper alt attributes
+- Optimize for responsive display with `width: 100%` and `height: auto`
+
+## JavaScript Rules
+- Use vanilla JavaScript for simple interactions
+- Include proper event delegation for dropdowns
+- Add console.log for debugging
+- Use classList.toggle for show/hide functionality
+
+## Code Quality Standards
+- Comment sections clearly with `/** start/end section_name */`
+- Use consistent indentation (2 spaces)
+- Group related properties together
+- Include vendor prefixes for compatibility
+- Use meaningful variable names in both English and Japanese contexts
+
+## Performance Considerations
+- Load critical CSS inline when possible
+- Optimize font loading with proper font-display
+- Use efficient selectors avoiding deep nesting beyond 3 levels
+- Minimize redundant styles through proper component architecture
+
+## Accessibility Requirements
+- Include proper ARIA labels for interactive elements
+- Ensure proper color contrast ratios
+- Use semantic HTML for screen readers
+- Include focus states for keyboard navigation
+- Test with Japanese screen readers when applicable
+
+Follow these rules to maintain consistency with the established codebase architecture and ensure professional, accessible, and maintainable code.
+# CSS and HTML Writing Rules for Japanese Business Website
+
+## HTML Structure Rules
+
+### Semantic HTML
+- Always use semantic HTML5 elements: `<main>`, `<section>`, `<nav>`, `<header>`, `<footer>`
+- Use proper document structure with DOCTYPE, lang attribute, and meta viewport
+- Structure sections with clear hierarchy using semantic containers
+
+### Class Naming Convention (BEM-like)
+- Use hierarchical class naming: `parent-child-grandchild` pattern
+- Prefix major sections with `sec-` (e.g., `sec-header`, `sec-footer`, `sec-intro`)
+- Use descriptive English names even for Japanese content
+- Follow this pattern:
+  ```html
+  <section class="sec-header">
+    <div class="sec-header-container">
+      <div class="sec-header-container-logo">
+      <nav class="sec-header-container-nav">
+      <div class="sec-header-container-info">
+  ```
+
+### HTML Best Practices
+- Always include meaningful alt attributes for images
+- Use proper button elements for interactive elements
+- Group related navigation items in `<ul>` lists
+- Include proper meta tags for viewport and charset
+- Link external fonts and stylesheets in `<head>`
+
+## CSS/SCSS Structure Rules
+
+### File Organization
+- Use modular SCSS architecture:
+  ```
+  scss/
+  ├── base/
+  │   ├── _common.scss (reset, global styles)
+  │   ├── _config.scss (variables, mixins)
+  │   └── _typo.scss (typography)
+  ├── core/
+  │   └── _footer.scss (reusable components)
+  └── pages/
+      └── _index.scss (page-specific styles)
+  ```
+
+### Responsive Design Rules
+- Always use these responsive mixins:
+  ```scss
+  @mixin pc {
+    @media screen and (max-width: 1500px) { @content; }
+  }
+  @mixin sp {
+    @media screen and (max-width: 768px) { @content; }
+  }
+  ```
+- Include responsive styles for every component:
+  ```scss
+  .component {
+    font-size: 15px;
+    @include pc {
+      font-size: 15rem;
+    }
+    @include sp {
+      font-size: 30rem;
+    }
+  }
+  ```
+
+### CSS Custom Properties
+- Use CSS custom properties for design tokens:
+  ```scss
+  :root {
+    --g-color-base: #BDA13C;
+    --g-color-brown: #5E370F;
+    --g-color-yellow: #B99B34;
+    --g-padding-m: 80px;
+    @include pc {
+      --g-padding-m: 80rem;
+    }
+    @include sp {
+      --g-padding-m: 0;
+    }
+  }
+  ```
+
+### Unit Strategy
+- Use `rem` units for responsive scaling (1rem = 1px at base)
+- Use `px` for base font-size calculation: `font-size: calc(1 / 1500 * 100vw)`
+- Apply different units per breakpoint consistently
+
+### Component Structure
+- Use nested SCSS following BEM-like hierarchy:
+  ```scss
+  .sec-header {
+    background-color: #8b6b2f;
+    height: 100px;
+    @include pc {
+      height: 100rem;
+    }
+    @include sp {
+      height: 400rem;
+    }
+    
+    &-container {
+      display: flex;
+      width: 100%;
+      @include sp {
+        flex-direction: column;
+      }
+      
+      &-logo {
+        width: 300px;
+        @include pc {
+          width: 300rem;
+        }
+        @include sp {
+          width: 360rem;
+        }
+      }
+    }
+  }
+  ```
+
+### Typography Rules
+- Include custom font loading:
+  ```scss
+  @font-face {
+    font-family: 'TA_fuga_fude';
+    src: url('../fonts/Fuder.ttf');
+    font-weight: 400;
+  }
+  ```
+- Set proper font stacks with fallbacks
+- Use responsive typography scaling
+
+### CSS Reset and Common Patterns
+- Always include comprehensive CSS reset:
+  ```scss
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  ```
+- Hide scrollbars consistently across browsers
+- Include container class with responsive max-width
+
+## Image and Asset Rules
+- Organize images by purpose in subdirectories
+- Use background images for decorative elements
+- Include proper alt attributes
+- Optimize for responsive display with `width: 100%` and `height: auto`
+
+## JavaScript Rules
+- Use vanilla JavaScript for simple interactions
+- Include proper event delegation for dropdowns
+- Add console.log for debugging
+- Use classList.toggle for show/hide functionality
+
+## Code Quality Standards
+- Comment sections clearly with `/** start/end section_name */`
+- Use consistent indentation (2 spaces)
+- Group related properties together
+- Include vendor prefixes for compatibility
+- Use meaningful variable names in both English and Japanese contexts
+
+## Performance Considerations
+- Load critical CSS inline when possible
+- Optimize font loading with proper font-display
+- Use efficient selectors avoiding deep nesting beyond 3 levels
+- Minimize redundant styles through proper component architecture
+
+## Accessibility Requirements
+- Include proper ARIA labels for interactive elements
+- Ensure proper color contrast ratios
+- Use semantic HTML for screen readers
+- Include focus states for keyboard navigation
+- Test with Japanese screen readers when applicable
+
+Follow these rules to maintain consistency with the established codebase architecture and ensure professional, accessible, and maintainable code.
