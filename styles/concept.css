@@ -378,6 +378,13 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    position: relative;
+  }
+  
+  /* Remove flexbox constraints for features with absolute positioned numbers */
+  .concept__feature--1,
+  .concept__feature--3 {
+    align-items: flex-start;
   }
   
   /* Point number at top of card */
@@ -395,17 +402,19 @@
   
   .concept__feature--1 .concept__feature-number,
   .concept__feature--3 .concept__feature-number {
-    position: static !important;
-    left: auto !important;
+    position: absolute !important;
+    left: 20px !important;
     right: auto !important;
-    top: auto !important;
+    top: -25px !important;
+    transform: none !important;
     justify-content: flex-start;
-    margin: 0 0 15px 0;
+    margin: 0 !important;
     order: 1;
-    align-self: center;
-    width: 100%;
-    max-width: 350px;
-    padding-left: 20px;
+    align-self: flex-start;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    z-index: 10;
   }
 
   .concept__feature--2 .concept__feature-number {

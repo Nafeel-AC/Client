@@ -9,7 +9,6 @@
         </div>
         <h2 class="seminar__title">セミナー情報</h2>
       </div>
-
     </div>
     
     <div class="seminar__slider">
@@ -22,7 +21,7 @@
             <path d="M7 1L1 6L7 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <span class="seminar__carousel-counter">1 / 3</span>
+        <span class="seminar__carousel-counter">1 / 12</span>
         <button class="seminar__nav-btn seminar__nav-btn--next">
           <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
             <path d="M1 1L7 6L1 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -31,9 +30,10 @@
       </div>
       
       <div class="seminar__carousel-container">
-        <!-- Card Set 1 -->
-        <div class="seminar__cards seminar__cards--set-1" data-set="1">
-          <div class="seminar__card">
+        <!-- All cards in a single container for mobile single-card view -->
+        <div class="seminar__cards-wrapper">
+          <!-- Card 1 -->
+          <div class="seminar__card" data-index="0">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=248&h=248&fit=crop" alt="Seminar 1" class="seminar__image">
             </div>
@@ -50,7 +50,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 2 -->
+          <div class="seminar__card" data-index="1">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=248&h=248&fit=crop" alt="Seminar 2" class="seminar__image">
             </div>
@@ -67,7 +68,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 3 -->
+          <div class="seminar__card" data-index="2">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=248&h=248&fit=crop" alt="Seminar 3" class="seminar__image">
             </div>
@@ -84,7 +86,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 4 -->
+          <div class="seminar__card" data-index="3">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=248&h=248&fit=crop" alt="Seminar 4" class="seminar__image">
             </div>
@@ -100,11 +103,9 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Card Set 2 -->
-        <div class="seminar__cards seminar__cards--set-2" data-set="2" style="display: none;">
-          <div class="seminar__card">
+          
+          <!-- Card 5 -->
+          <div class="seminar__card" data-index="4">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=248&h=248&fit=crop" alt="Seminar 5" class="seminar__image">
             </div>
@@ -121,7 +122,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 6 -->
+          <div class="seminar__card" data-index="5">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=248&h=248&fit=crop" alt="Seminar 6" class="seminar__image">
             </div>
@@ -138,7 +140,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 7 -->
+          <div class="seminar__card" data-index="6">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=248&h=248&fit=crop" alt="Seminar 7" class="seminar__image">
             </div>
@@ -155,7 +158,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 8 -->
+          <div class="seminar__card" data-index="7">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=248&h=248&fit=crop" alt="Seminar 8" class="seminar__image">
             </div>
@@ -171,11 +175,9 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Card Set 3 -->
-        <div class="seminar__cards seminar__cards--set-3" data-set="3" style="display: none;">
-          <div class="seminar__card">
+          
+          <!-- Card 9 -->
+          <div class="seminar__card" data-index="8">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=248&h=248&fit=crop" alt="Seminar 9" class="seminar__image">
             </div>
@@ -192,7 +194,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 10 -->
+          <div class="seminar__card" data-index="9">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=248&h=248&fit=crop" alt="Seminar 10" class="seminar__image">
             </div>
@@ -209,7 +212,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 11 -->
+          <div class="seminar__card" data-index="10">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=248&h=248&fit=crop" alt="Seminar 11" class="seminar__image">
             </div>
@@ -226,7 +230,8 @@
             </div>
           </div>
           
-          <div class="seminar__card">
+          <!-- Card 12 -->
+          <div class="seminar__card" data-index="11">
             <div class="seminar__card-img">
               <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=248&h=248&fit=crop" alt="Seminar 12" class="seminar__image">
             </div>

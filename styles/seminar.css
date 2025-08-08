@@ -85,8 +85,6 @@
   margin: 0;
 }
 
-
-
 .seminar__slider {
   position: relative;
   width: 100%;
@@ -103,17 +101,21 @@
   background: rgba(244, 182, 53, 0.1);
 }
 
-.seminar__cards {
+.seminar__carousel-container {
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.seminar__cards-wrapper {
   display: flex;
   gap: 24px;
   padding: 84px 0 0 0;
   justify-content: center;
   flex-wrap: nowrap;
-  max-width: 1280px;
-  margin: 0 auto;
-  transition: opacity 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .seminar__card {
@@ -124,6 +126,7 @@
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
 .seminar__card-img {
@@ -256,6 +259,10 @@
   transform: scale(1.1);
 }
 
+.seminar__nav-btn:active {
+  transform: scale(0.95);
+}
+
 .seminar__carousel-counter {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
@@ -264,11 +271,8 @@
   background: rgba(0, 0, 0, 0.5);
   padding: 8px 16px;
   border-radius: 20px;
-}
-
-.seminar__carousel-container {
-  position: relative;
-  overflow: visible;
+  min-width: 60px;
+  text-align: center;
 }
 
 /* Responsive Design */
@@ -283,7 +287,7 @@
     padding: 0 80px;
   }
   
-  .seminar__cards {
+  .seminar__cards-wrapper {
     padding: 84px 0 0 0;
     gap: 20px;
     max-width: 1080px;
@@ -348,33 +352,56 @@
   
   .seminar__carousel-container {
     overflow: hidden;
-    padding: 0 20px;
-    margin: 0;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 0;
   }
   
-  .seminar__cards {
+  .seminar__cards-wrapper {
     display: flex;
     gap: 0;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     flex-direction: row;
     align-items: stretch;
     padding: 0;
-    width: 100%;
+    width: 1200%; /* 12 cards * 100% each */
   }
   
   .seminar__card {
-    min-width: 100%;
-    max-width: 100%;
-    width: 100%;
+    min-width: calc(100% / 12); /* Each card takes 1/12 of total width */
+    max-width: calc(100% / 12);
+    width: calc(100% / 12);
     flex-shrink: 0;
     margin: 0;
     height: auto;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .seminar__card-img {
-    width: 100%;
+    width: 250px;
     height: 200px;
     margin: 0;
+  }
+  
+  .seminar__card-info {
+    width: 180px;
+    margin: 0;
+  }
+  
+  .seminar__card-content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
   }
   
   .seminar__cta-btn {
@@ -384,5 +411,53 @@
   
   .seminar__cta-text {
     font-size: 20px;
+  }
+}
+
+/* Mobile-specific animations */
+@media (max-width: 900px) {
+  .seminar__card {
+    animation: fadeInScale 0.5s ease-out;
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .seminar__card.slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+  }
+  
+  .seminar__card.slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }

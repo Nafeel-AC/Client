@@ -10,81 +10,117 @@ function initSeminarSection() {
   
   console.log('Seminar section found, initializing...');
 
-  const cardSets = seminarSection.querySelectorAll('.seminar__cards');
+  const cardsWrapper = seminarSection.querySelector('.seminar__cards-wrapper');
+  const cards = seminarSection.querySelectorAll('.seminar__card');
   const prevBtn = seminarSection.querySelector('.seminar__nav-btn--prev');
   const nextBtn = seminarSection.querySelector('.seminar__nav-btn--next');
   const counter = seminarSection.querySelector('.seminar__carousel-counter');
   
-  let currentSetIndex = 0;
-  let currentCardIndex = 0;
-  const totalSets = cardSets.length;
-  const cardsPerSet = 4;
+  let currentIndex = 0;
+  const totalCards = cards.length;
   
   // Check if we're on mobile
   function isMobile() {
     return window.innerWidth <= 900;
   }
   
-  // Show specific card set (desktop)
-  function showCardSet(index) {
-    cardSets.forEach((set, i) => {
-      if (i === index) {
-        set.style.display = 'flex';
-      } else {
-        set.style.display = 'none';
-      }
-    });
-    
-    // Update counter for desktop
+  // Update counter display
+  function updateCounter() {
     if (counter) {
-      counter.textContent = `${index + 1} / ${totalSets}`;
+      if (isMobile()) {
+        counter.textContent = `${currentIndex + 1} / ${totalCards}`;
+      } else {
+        const setIndex = Math.floor(currentIndex / 4);
+        counter.textContent = `${setIndex + 1} / 3`;
+      }
     }
-    
-    console.log(`Showing card set ${index + 1} of ${totalSets}`);
   }
   
-  // Show specific card within current set (mobile)
-  function showCard(index) {
-    const currentSet = cardSets[currentSetIndex];
-    if (!currentSet) return;
+  // Show specific card with smooth transition
+  function showCard(index, direction = 'right') {
+    if (index < 0 || index >= totalCards) return;
     
-    const cards = currentSet.querySelectorAll('.seminar__card');
-    const translateX = -(index * 100);
-    currentSet.style.transform = `translateX(${translateX}%)`;
+    currentIndex = index;
     
-    // Update counter for mobile
-    if (counter) {
-      const totalCards = cards.length;
-      counter.textContent = `${index + 1} / ${totalCards}`;
+    // Calculate transform for mobile single-card view
+    if (isMobile()) {
+      // In mobile, each card is 1/12 of the total width (1200% / 12 = 100%)
+      // So to show card at index, we move by index * 100%
+      const translateX = -(index * 100);
+      cardsWrapper.style.transform = `translateX(${translateX}%)`;
+      
+      // Add animation class to current card
+      cards.forEach((card, i) => {
+        card.classList.remove('slide-in-left', 'slide-in-right');
+        if (i === index) {
+          card.classList.add(direction === 'left' ? 'slide-in-left' : 'slide-in-right');
+        }
+      });
+    } else {
+      // Desktop: show 4 cards at once, grouped by sets
+      const setIndex = Math.floor(index / 4);
+      cardsWrapper.style.transform = `translateX(0%)`;
+      
+      // For desktop, we need to handle the display differently
+      // Show only the current set of 4 cards
+      cards.forEach((card, i) => {
+        const cardSetIndex = Math.floor(i / 4);
+        if (cardSetIndex === setIndex) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
     
-    console.log(`Showing card ${index + 1} of ${cards.length} in set ${currentSetIndex + 1}`);
+    updateCounter();
+    
+    // Update button states
+    updateButtonStates();
+    
+    console.log(`Showing card ${index + 1} of ${totalCards}`);
+  }
+  
+  // Update button states
+  function updateButtonStates() {
+    if (isMobile()) {
+      if (prevBtn) {
+        prevBtn.disabled = currentIndex === 0;
+        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      }
+      
+      if (nextBtn) {
+        nextBtn.disabled = currentIndex === totalCards - 1;
+        nextBtn.style.opacity = currentIndex === totalCards - 1 ? '0.5' : '1';
+      }
+    } else {
+      const setIndex = Math.floor(currentIndex / 4);
+      
+      if (prevBtn) {
+        prevBtn.disabled = setIndex === 0;
+        prevBtn.style.opacity = setIndex === 0 ? '0.5' : '1';
+      }
+      
+      if (nextBtn) {
+        nextBtn.disabled = setIndex === 2; // 3 sets total (0, 1, 2)
+        nextBtn.style.opacity = setIndex === 2 ? '0.5' : '1';
+      }
+    }
   }
   
   // Next button click
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
       if (isMobile()) {
-        // Mobile: navigate through cards within current set
-        const currentSet = cardSets[currentSetIndex];
-        const cards = currentSet.querySelectorAll('.seminar__card');
-        if (currentCardIndex < cards.length - 1) {
-          currentCardIndex++;
-        } else {
-          // Move to next set
-          currentSetIndex = (currentSetIndex + 1) % totalSets;
-          currentCardIndex = 0;
-          showCardSet(currentSetIndex);
+        if (currentIndex < totalCards - 1) {
+          showCard(currentIndex + 1, 'right');
         }
-        showCard(currentCardIndex);
       } else {
-        // Desktop: navigate through card sets
-        if (currentSetIndex < totalSets - 1) {
-          currentSetIndex++;
-        } else {
-          currentSetIndex = 0;
+        // Desktop: move to next set of 4 cards
+        const setIndex = Math.floor(currentIndex / 4);
+        if (setIndex < 2) { // 3 sets total (0, 1, 2)
+          showCard((setIndex + 1) * 4, 'right');
         }
-        showCardSet(currentSetIndex);
       }
     });
   }
@@ -93,50 +129,74 @@ function initSeminarSection() {
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
       if (isMobile()) {
-        // Mobile: navigate through cards within current set
-        if (currentCardIndex > 0) {
-          currentCardIndex--;
-        } else {
-          // Move to previous set
-          currentSetIndex = currentSetIndex > 0 ? currentSetIndex - 1 : totalSets - 1;
-          const currentSet = cardSets[currentSetIndex];
-          const cards = currentSet.querySelectorAll('.seminar__card');
-          currentCardIndex = cards.length - 1;
-          showCardSet(currentSetIndex);
+        if (currentIndex > 0) {
+          showCard(currentIndex - 1, 'left');
         }
-        showCard(currentCardIndex);
       } else {
-        // Desktop: navigate through card sets
-        if (currentSetIndex > 0) {
-          currentSetIndex--;
-        } else {
-          currentSetIndex = totalSets - 1;
+        // Desktop: move to previous set of 4 cards
+        const setIndex = Math.floor(currentIndex / 4);
+        if (setIndex > 0) {
+          showCard((setIndex - 1) * 4, 'left');
         }
-        showCardSet(currentSetIndex);
       }
     });
   }
   
-  // Card hover effects for all cards in all sets
-  cardSets.forEach(set => {
-    const cards = set.querySelectorAll('.seminar__card');
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', function() {
+  // Touch/swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }
+  
+  function handleTouchEnd(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0 && currentIndex < totalCards - 1) {
+        // Swipe left - next card
+        showCard(currentIndex + 1, 'right');
+      } else if (diff < 0 && currentIndex > 0) {
+        // Swipe right - previous card
+        showCard(currentIndex - 1, 'left');
+      }
+    }
+  }
+  
+  // Add touch events for mobile
+  if (cardsWrapper) {
+    cardsWrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
+    cardsWrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+  }
+  
+  // Card hover effects
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      if (!isMobile()) {
         this.style.transform = 'translateY(-5px)';
         this.style.boxShadow = '0px 5px 20px 0px rgba(32, 134, 180, 0.3)';
         this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-      });
-      
-      card.addEventListener('mouseleave', function() {
+      }
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      if (!isMobile()) {
         this.style.transform = 'translateY(0)';
         this.style.boxShadow = '0px 0px 10px 0px rgba(32, 134, 180, 0.2)';
-      });
-      
-      // Card click functionality
-      card.addEventListener('click', function() {
-        console.log('Card clicked:', this.querySelector('.seminar__card-title')?.textContent);
-        // Add your card click functionality here
-      });
+      }
+    });
+    
+    // Card click functionality
+    card.addEventListener('click', function() {
+      console.log('Card clicked:', this.querySelector('.seminar__card-title')?.textContent);
+      // Add your card click functionality here
     });
   });
   
@@ -149,27 +209,32 @@ function initSeminarSection() {
     });
   }
   
-  // Initialize based on screen size
+  // Initialize view
   function initializeView() {
-    if (isMobile()) {
-      // Mobile: show first card of first set
-      showCardSet(currentSetIndex);
-      showCard(currentCardIndex);
-    } else {
-      // Desktop: show first card set
-      showCardSet(currentSetIndex);
-    }
+    showCard(0);
+    
+    // Reset any previous styles
+    cards.forEach(card => {
+      card.style.display = '';
+      card.classList.remove('slide-in-left', 'slide-in-right');
+    });
+    
+    // Set initial transform
+    cardsWrapper.style.transform = 'translateX(0%)';
   }
   
   // Initialize
   initializeView();
   
   // Handle window resize
+  let resizeTimeout;
   window.addEventListener('resize', () => {
-    // Reset to first card/set when switching between mobile/desktop
-    currentSetIndex = 0;
-    currentCardIndex = 0;
-    initializeView();
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Reset to first card when switching between mobile/desktop
+      currentIndex = 0;
+      initializeView();
+    }, 250);
   });
   
   console.log('Seminar section initialized successfully');
