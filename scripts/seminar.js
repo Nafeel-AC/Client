@@ -44,8 +44,8 @@ function initSeminarSection() {
     
     // Calculate transform for mobile single-card view
     if (isMobile()) {
-      // In mobile, each card is 280px wide, so move by index * 280px
-      const translateX = -(index * 280);
+      // In mobile, each card is 270px wide, so move by index * 270px
+      const translateX = -(index * 270);
       cardsWrapper.style.transform = `translateX(${translateX}px)`;
       
       // Add animation class to current card
