@@ -48,7 +48,7 @@ function initAboutCarousel() {
     // Responsive slides per view
     function getSlidesPerView() {
       const width = window.innerWidth;
-      if (width < 768) return 1;
+      if (width < 768) return 1; // Mobile: show only 1 slide
       if (width < 1024) return 2;
       if (width < 1200) return 3;
       return 4;

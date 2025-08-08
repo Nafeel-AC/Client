@@ -137,6 +137,19 @@
   transform: scale(1.05);
 }
 
+/* Mobile: Remove opacity effects for single slide view */
+@media (max-width: 768px) {
+  .about__carousel-slide {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .about__carousel-slide.active {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 .about__carousel-img {
   width: 100%;
   max-width: 100%;
@@ -274,18 +287,28 @@
     margin: 30px auto 20px auto;
   }
   
+  .about__carousel-container {
+    padding: 0 20px;
+    margin: 0;
+  }
+  
   .about__carousel-slide {
-    min-width: calc(80% - 0px);
-    max-width: calc(80% - 0px);
-    width: calc(80% - 0px);
+    min-width: calc(100% - 0px);
+    max-width: calc(100% - 0px);
+    width: calc(100% - 0px);
+    margin: 0 auto;
+    align-items: flex-start;
+    padding-left: 35px;
   }
   
   .about__carousel-track {
     gap: 20px;
+    justify-content: center;
   }
   
   .about__carousel-img {
-    aspect-ratio: 3/2;
+    aspect-ratio: 4/3;
+    height: 300px;
     max-width: 100%;
   }
   
@@ -320,8 +343,18 @@
     padding: 8px;
   }
   
+  .about__carousel-container {
+    padding: 0 10px;
+    margin: 0;
+  }
+  
+  .about__carousel-slide {
+    padding-left: 25px;
+  }
+  
   .about__carousel-img {
-    aspect-ratio: 3/2;
+    aspect-ratio: 4/3;
+    height: 280px;
   }
   
   .about__carousel-nav {
