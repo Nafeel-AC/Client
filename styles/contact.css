@@ -1,0 +1,105 @@
+.contact {
+  position: relative;
+  width: 100%;
+  min-height: 470px;
+  background: linear-gradient(90deg, #07154A 0%, #373D54 100%);
+  overflow: hidden;
+}
+.contact__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 240px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.1);
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+.contact__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 40px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact__heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.contact__heading-icon {
+  width: 40px;
+  height: 40px;
+  background: #FF7300;
+  border-radius: 50%;
+  display: inline-block;
+}
+.contact__heading-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #FF7300;
+}
+.contact__subtitle {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+.contact__desc {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+.contact__btns {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+}
+.contact__btn {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #333;
+  background: linear-gradient(90deg, #F4B635 0%, #FF7300 100%);
+  border: none;
+  border-radius: 35.5px;
+  padding: 16px 48px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+.contact__btn:hover {
+  background: linear-gradient(90deg, #FF7300 0%, #F4B635 100%);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact__bg { font-size: 80px; }
+  .contact__content { padding: 80px 20px 40px 20px; }
+  .contact__heading-title { font-size: 20px; }
+  .contact__subtitle { font-size: 28px; }
+  .contact__desc { font-size: 16px; }
+  .contact__btns { flex-direction: column; gap: 16px; width: 100%; align-items: center; }
+  .contact__btn { width: 280px; }
+}
+
+@media (max-width: 600px) {
+  .contact__bg { font-size: 60px; }
+  .contact__btn { width: 240px; padding: 14px 24px; font-size: 16px; }
+}

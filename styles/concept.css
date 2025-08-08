@@ -1,0 +1,487 @@
+.concept {
+  position: relative;
+  width: 100%;
+  background: #f5f5f0;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.concept__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 240px;
+  font-weight: 700;
+  color: rgba(120, 118, 111, 0.1);
+  z-index: 1;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+  line-height: 0.8;
+  text-align: right;
+}
+
+.concept__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.concept__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.concept__header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.concept__header-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.concept__icon-line {
+  width: 40px;
+  height: 1px;
+  background: #FF7300;
+}
+
+.concept__icon-text {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FF7300;
+}
+
+.concept__title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 2em;
+  color: #333;
+  margin: 0;
+}
+
+/* Description Section */
+.concept__description {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.concept__description p {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2em;
+  color: #333;
+  margin: 0;
+}
+
+/* Features Section */
+.concept__features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.concept__feature {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.concept__feature:last-child {
+  margin-bottom: 0;
+}
+
+.concept__feature--1 {
+  justify-content: flex-start;
+  padding-left: 0;
+  padding-right: 40px;
+}
+
+.concept__feature--1 .concept__feature-content {
+  margin-left: -40px !important;
+  margin-right: 40px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.concept__feature--2 {
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
+.concept__feature--3 {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.concept__feature-content {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px rgba(60, 86, 52, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.concept__feature--2 .concept__feature-content {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-right: -40px !important;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.concept__feature--3 .concept__feature-content {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: -40px !important;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.concept__feature-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  flex: 1;
+}
+
+.concept__feature-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 2em;
+  color: #333;
+  margin: 0;
+}
+
+.concept__feature-desc {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2em;
+  color: #333;
+  margin: 0;
+}
+
+.concept__feature-image {
+  width: 400px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.concept__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Feature Numbers */
+.concept__feature-number {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100px;
+}
+
+.concept__feature--1 .concept__feature-number {
+  left: 40px;
+  top: 0;
+}
+
+.concept__feature--2 .concept__feature-number {
+  right: 40px;
+  top: 0;
+}
+
+.concept__feature--3 .concept__feature-number {
+  left: 40px;
+  top: 0;
+}
+
+.concept__number-label {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2em;
+  color: #3E752E;
+}
+
+.concept__number {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 100px;
+  line-height: 1em;
+  color: #3E752E;
+}
+
+/* CTA Button */
+.concept__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.concept__cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #F4B635 0%, #FF7300 100%);
+  color: white;
+  border: none;
+  padding: 19px 99px;
+  border-radius: 35.5px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 361px;
+  height: 67px;
+  position: relative;
+}
+
+.concept__cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.concept__cta-text {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 1.2em;
+  letter-spacing: 0.1em;
+  color: white;
+}
+
+.concept__cta-arrow {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .concept__bg {
+    font-size: 200px;
+    text-align: left;
+  }
+  
+  .concept__feature {
+    height: auto;
+    min-height: 350px;
+  }
+  
+  .concept__feature-content {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  
+  .concept__feature--1 .concept__feature-content,
+  .concept__feature--2 .concept__feature-content,
+  .concept__feature--3 .concept__feature-content {
+    padding: 40px 20px;
+  }
+  
+  .concept__feature--2 .concept__feature-content {
+    flex-direction: column;
+  }
+  
+  .concept__feature-number {
+    position: static;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .concept__feature-image {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 900px) {
+  .concept {
+    padding: 60px 20px;
+  }
+  
+  .concept .concept__bg {
+    font-size: 80px !important;
+    left: 0 !important;
+    right: auto !important;
+    text-align: left !important;
+  }
+  
+  .concept__title {
+    font-size: 28px;
+  }
+  
+  /* Mobile card layout */
+  .concept__feature {
+    position: relative;
+    height: auto;
+    padding: 0;
+    margin-bottom: 40px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .concept__feature--1,
+  .concept__feature--2,
+  .concept__feature--3 {
+    padding: 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Point number at top of card */
+  .concept__feature-number {
+    position: static !important;
+    justify-content: flex-start;
+    margin: 0 0 0px 0;
+    height: auto;
+    order: 1;
+    align-self: center;
+    width: 100%;
+    max-width: 350px;
+    padding-left: 20px;
+  }
+  
+  .concept__feature--1 .concept__feature-number,
+  .concept__feature--3 .concept__feature-number {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    justify-content: flex-start;
+    margin: 0 0 0px 0;
+    order: 1;
+    align-self: center;
+    width: 100%;
+    max-width: 350px;
+    padding-left: 20px;
+  }
+
+  .concept__feature--2 .concept__feature-number {
+    position: absolute !important;
+    top: -25px;
+    right: 20px;
+    left: auto !important;
+    justify-content: flex-end;
+    margin: 0;
+    order: 1;
+    align-self: flex-end;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    z-index: 10;
+  }
+  
+  .concept__feature-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    max-width: 350px;
+    text-align: left;
+    order: 2;
+  }
+  
+  .concept__feature--1 .concept__feature-content,
+  .concept__feature--2 .concept__feature-content,
+  .concept__feature--3 .concept__feature-content {
+    margin: 0 !important;
+    border-radius: 10px !important;
+    padding: 30px 20px;
+    order: 2;
+  }
+  
+  .concept__number-label {
+    font-size: 16px;
+  }
+  
+  .concept__number {
+    font-size: 60px;
+  }
+  
+  /* Title and description */
+  .concept__feature-text {
+    gap: 15px;
+    order: 2;
+  }
+  
+  .concept__feature-title {
+    font-size: 24px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  
+  .concept__feature-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  /* Image at bottom */
+  .concept__feature-image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    order: 4;
+    align-self: center;
+  }
+  
+  .concept__cta-btn {
+    width: 300px;
+    height: 60px;
+    padding: 15px 40px;
+  }
+  
+  .concept__cta-text {
+    font-size: 20px;
+  }
+}

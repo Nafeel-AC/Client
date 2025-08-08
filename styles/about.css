@@ -1,0 +1,306 @@
+.about {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  background: #f5f5f0;
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+
+.about__mission-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 240px;
+  font-weight: 700;
+  color: rgba(244, 182, 53, 0.15);
+  z-index: 1;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+  line-height: 0.8;
+  text-align: left;
+}
+
+.about__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 40px 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.about__heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.about__heading-icon {
+  width: 40px;
+  height: 40px;
+  background: #FF7300;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.about__heading-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #FF7300;
+}
+
+.about__subtitle {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 16px 0;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.about__subdesc {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 32px 0;
+  text-align: left;
+}
+
+.about__desc {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  line-height: 2em;
+  text-align: center;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* Carousel Styles */
+.about__carousel {
+  position: relative;
+  z-index: 2;
+  width: 95%;
+  max-width: 1200px;
+  margin: 60px auto 40px auto;
+  overflow: hidden;
+}
+
+.about__carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+}
+
+.about__carousel-slide {
+  min-width: calc(25% - 15px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.about__carousel-img {
+  width: 280px;
+  height: 200px;
+  border-radius: 0;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about__carousel-slide:hover .about__carousel-img {
+  transform: scale(1.02);
+}
+
+/* Navigation Buttons */
+.about__carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about__carousel-nav:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.about__carousel-nav--prev {
+  left: 10px;
+}
+
+.about__carousel-nav--next {
+  right: 10px;
+}
+
+.about__carousel-text {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+/* Carousel Dots */
+.about__carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.about__carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.about__carousel-dot.active {
+  background: #FF7300;
+}
+
+/* CTA Button */
+.about__cta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.about__cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #FF7300 0%, #F4B635 100%);
+  color: white;
+  border: none;
+  padding: 24px 100px;
+  border-radius: 50px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 115, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.about__cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 115, 0, 0.4);
+}
+
+.about__cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.about__cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .about__mission-bg {
+    font-size: 200px;
+  }
+  
+  .about__carousel {
+    width: 95%;
+  }
+  
+  .about__carousel-slide {
+    min-width: calc(25% - 15px);
+  }
+  
+  .about__carousel-img {
+    width: 240px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about {
+    min-height: 700px;
+  }
+  
+  .about__mission-bg {
+    font-size: 80px !important;
+    left: 0;
+    text-align: center;
+  }
+  
+  .about__content {
+    padding: 60px 20px 40px 20px;
+  }
+  
+  .about__subtitle {
+    font-size: 22px;
+  }
+  
+  .about__subdesc {
+    font-size: 20px;
+  }
+  
+  .about__carousel {
+    width: 95%;
+    margin: 40px auto 30px auto;
+  }
+  
+  .about__carousel-slide {
+    min-width: calc(50% - 10px);
+  }
+  
+  .about__carousel-img {
+    width: 200px;
+    height: 140px;
+  }
+  
+  .about__carousel-text {
+    font-size: 16px;
+  }
+  
+  .about__cta-btn {
+    padding: 15px 80px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about__mission-bg { font-size: 60px; left: 0; text-align: center; }
+  .about__subtitle { font-size: 20px; }
+  .about__subdesc { font-size: 18px; }
+  .about__desc { font-size: 14px; padding: 0 8px; }
+  .about__carousel-slide { min-width: 100%; }
+  .about__carousel-img { width: 100%; max-width: 320px; height: 200px; }
+}

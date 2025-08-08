@@ -1,0 +1,318 @@
+.seminar {
+  position: relative;
+  width: 100%;
+  background: #f5f5f0;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.seminar__bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 240px;
+  font-weight: 700;
+  color: rgba(120, 118, 111, 0.1);
+  z-index: 1;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.seminar__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  padding: 0 156px;
+  box-sizing: border-box;
+}
+
+.seminar__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.seminar__header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.seminar__header-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.seminar__icon-line {
+  width: 40px;
+  height: 1px;
+  background: #FF7300;
+}
+
+.seminar__icon-text {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FF7300;
+}
+
+.seminar__title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 2em;
+  color: #333;
+  margin: 0;
+}
+
+
+
+.seminar__slider {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+
+.seminar__slider-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 212px;
+  background: rgba(244, 182, 53, 0.1);
+}
+
+.seminar__cards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 24px;
+  padding: 84px 0 0 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.seminar__card {
+  width: 272px;
+  height: 248px;
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.seminar__card-img {
+  position: relative;
+  width: 248px;
+  height: 248px;
+  margin: 0 24px 0 0;
+}
+
+.seminar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seminar__card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+}
+
+.seminar__card-info {
+  background: white;
+  border: 2px solid #FF7300;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  width: 140px;
+  margin: 0;
+  left: 0;
+}
+
+.seminar__card-arrow {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.seminar__card-date {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1em;
+  letter-spacing: 0.04em;
+  text-align: left;
+  color: #FF7300;
+}
+
+.seminar__card-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3em;
+  text-align: left;
+  color: #333;
+  padding-right: 15px;
+}
+
+.seminar__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.seminar__cta-btn {
+  width: 280px;
+  height: 50px;
+  background: linear-gradient(90deg, #FF7300 0%, #E55A00 100%);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.seminar__cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+.seminar__cta-text {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2em;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+.seminar__cta-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .seminar__bg {
+    font-size: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .seminar__container {
+    padding: 0 80px;
+  }
+  
+  .seminar__cards {
+    padding: 84px 0 0 80px;
+    gap: 20px;
+  }
+  
+  .seminar__card {
+    width: 240px;
+    height: 220px;
+  }
+  
+  .seminar__card-img {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .seminar {
+    padding: 60px 20px;
+  }
+  
+  .seminar__bg {
+    font-size: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .seminar__container {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  
+  .seminar__header {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .seminar__header-icon {
+    align-items: center;
+  }
+  
+  .seminar__title {
+    font-size: 28px;
+  }
+  
+  .seminar__slider {
+    height: auto;
+  }
+  
+  .seminar__slider-bg {
+    display: none;
+  }
+  
+  .seminar__cards {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    gap: 20px;
+  }
+  
+  .seminar__card {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+  
+  .seminar__card-img {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+  }
+  
+  .seminar__cta-btn {
+    width: 280px;
+    height: 60px;
+  }
+  
+  .seminar__cta-text {
+    font-size: 20px;
+  }
+}

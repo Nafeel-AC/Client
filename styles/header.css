@@ -1,0 +1,67 @@
+.header {
+  width: 100%;
+  background: #6C4C35;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.header__logo-img {
+  width: 120px;
+  height: 52px;
+  background: #fff;
+  border-radius: 8px;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.header__nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header__nav-list li a {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.header__nav-list li a:hover {
+  background: #FF7300;
+}
+.header__nav-btns {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+.header__btn {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: #333;
+  background: linear-gradient(90deg, #F4B635 0%, #FF7300 100%);
+  border: none;
+  border-radius: 35.5px;
+  padding: 12px 32px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+.header__btn:hover {
+  background: linear-gradient(90deg, #FF7300 0%, #F4B635 100%);
+  color: #fff;
+}
