@@ -156,7 +156,7 @@ a.header__nav-link:hover {
   /* border-color: #FF7300; */
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .header__main {
     gap: 200px;
   }
@@ -189,6 +189,7 @@ a.header__nav-link:hover {
   /* Show hamburger menu toggle */
   .header__menu-toggle { 
     display: inline-flex; 
+    flex-direction: column;
     align-items: center; 
     gap: 8px; 
     background: transparent; 

@@ -24,7 +24,7 @@ function initVoiceSection() {
       image: 'assets/asian-businessman-phone.jpg',
       title: 'リファラルリクルーティングで最高の仲間を見つけることができました',
       name: '田中　太郎様',
-      body: '採用に悩んでいた時に、リファラルリクルーティングという手法に出会いました。従来の採用方法とは全く違い、社員の紹介を通じて本当に優秀な人材と出会うことができました。特に、社内の雰囲気や仕事の内容をよく理解した上で紹介してくれるので、ミスマッチが少なく、すぐに戦力として活躍してくれています。'
+      body: 'リファラル採用に出会い、社員紹介を通じて優秀な人材を獲得。社内理解があるためミスマッチが少なく、即戦力として活躍している。'
     },
     {
       image: 'assets/close-up-two-business-woman-looking-with-paper-document-together-while-walking-office-business-people-concept.jpg',
