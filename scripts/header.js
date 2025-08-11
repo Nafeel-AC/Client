@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     nav.classList.toggle('is-open', expanded);
     document.body.style.overflow = expanded ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', expanded);
   }
 
   toggle.addEventListener('click', () => {

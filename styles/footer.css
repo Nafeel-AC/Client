@@ -61,11 +61,13 @@
   line-height: 1.57em;
   color: #FFFFFF;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, border-bottom 0.2s;
+  border-bottom: 2px solid transparent;
 }
 
 .footer__link:hover {
   opacity: 0.8;
+  border-bottom: 2px solid #fff;
 }
 
 .footer__lower {

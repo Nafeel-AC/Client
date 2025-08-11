@@ -49,6 +49,7 @@ function initMobileMenu() {
     toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     nav.classList.toggle('is-open', expanded);
     document.body.style.overflow = expanded ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', expanded);
   }
 
   // Remove any existing listeners first
