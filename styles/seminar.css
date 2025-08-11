@@ -233,8 +233,8 @@
 .seminar__carousel-nav {
   display: flex;
   position: absolute;
-  top: -60px;
-  left: 50%;
+  top: 66px;
+  right: 0%;
   transform: translateX(-50%);
   z-index: 10;
   align-items: center;
