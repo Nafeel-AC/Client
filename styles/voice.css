@@ -226,17 +226,17 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #DDDDDD;
+  background: #CCCCCC;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .voice__pagination-dot--active {
-  background: #333;
+  background: #000000;
 }
 
 .voice__pagination-dot:hover {
-  background: #999;
+  background: #999999;
 }
 
 /* Responsive Design */

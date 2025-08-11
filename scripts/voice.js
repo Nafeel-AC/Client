@@ -32,18 +32,18 @@ function initVoiceSection() {
       name: '佐藤　花子様',
       body: '利用させていただいて本当に良かったです。スタッフの方々も親切で、安心してサービスを受けることができました。また機会があれば利用したいと思います。'
     },
-    {
-      image: 'assets/voice__testimonial-image.png',
-      title: '期待以上の結果を得ることができました。',
-      name: '山田　次郎様',
-      body: '最初は不安でしたが、実際に利用してみると期待以上の結果を得ることができました。プロフェッショナルな対応に感謝しています。'
-    },
-    {
-      image: 'assets/voice__testimonial-image.png',
-      title: '丁寧で親切なサービスに感動しました。',
-      name: '鈴木　美咲様',
-      body: '細かいところまで気を配ってくださり、本当に感動しました。おかげさまで目標を達成することができました。ありがとうございました。'
-    },
+    // {
+    //   image: 'assets/closeup-smiling-coworkers-using-tablet-outdoors.jpg',
+    //   title: '期待以上の結果を得ることができました。',
+    //   name: '山田　次郎様',
+    //   body: '最初は不安でしたが、実際に利用してみると期待以上の結果を得ることができました。プロフェッショナルな対応に感謝しています。'
+    // },
+    // {
+    //   image: 'assets/content-business-man-texting-phone-cafe.jpg',
+    //   title: '丁寧で親切なサービスに感動しました。',
+    //   name: '鈴木　美咲様',
+    //   body: '細かいところまで気を配ってくださり、本当に感動しました。おかげさまで目標を達成することができました。ありがとうございました。'
+    // },
     {
       image: 'assets/business-meeting-1.jpg',
       title: '信頼できるパートナーとして選んで良かったです。',
@@ -76,7 +76,6 @@ function initVoiceSection() {
   // Update testimonial content
   function updateTestimonial(index) {
     const testimonial = testimonials[index];
-    console.log('Updating testimonial to index:', index, testimonial.name);
     
     // Fade out effect
     testimonialImage.style.opacity = '0';
@@ -100,14 +99,11 @@ function initVoiceSection() {
 
   // Update pagination dots
   function updatePagination() {
-    console.log('Updating pagination, current index:', currentIndex);
     paginationDots.forEach((dot, index) => {
       if (index === currentIndex) {
         dot.classList.add('voice__pagination-dot--active');
-        console.log('Dot', index, 'is now active (black)');
       } else {
         dot.classList.remove('voice__pagination-dot--active');
-        console.log('Dot', index, 'is now inactive (grey)');
       }
     });
   }
