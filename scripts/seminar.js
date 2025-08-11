@@ -199,7 +199,7 @@ function initSeminarSection() {
     showCard(0);
     // Reset any previous styles
     cards.forEach(card => {
-      card.style.display = '';
+      card.style.display = 'block'; // Ensure all cards are initially visible
       card.classList.remove('slide-in-left', 'slide-in-right');
     });
     // Set initial transform
