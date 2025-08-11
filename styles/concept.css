@@ -347,7 +347,7 @@
 } */
 
 /* working at this moment */
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .concept {
     padding: 60px 20px;
   }
