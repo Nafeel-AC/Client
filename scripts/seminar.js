@@ -56,14 +56,18 @@ function initSeminarSection() {
     } else {
       // Desktop: show 4 cards at once, grouped by sets
       const setIndex = Math.floor(index / cardsPerSet);
-      cardsWrapper.style.transform = `translateX(0%)`;
+      cardsWrapper.style.transform = `translateX(0px)`;
       // Show only the current set of 4 cards
       cards.forEach((card, i) => {
         const cardSetIndex = Math.floor(i / cardsPerSet);
         if (cardSetIndex === setIndex) {
-          card.style.display = 'block';
+          card.style.display = 'flex';
+          card.style.visibility = 'visible';
+          card.style.opacity = '1';
         } else {
           card.style.display = 'none';
+          card.style.visibility = 'hidden';
+          card.style.opacity = '0';
         }
       });
     }
@@ -196,14 +200,23 @@ function initSeminarSection() {
 
   // Initialize view
   function initializeView() {
-    showCard(0);
-    // Reset any previous styles
+    // Reset any previous styles first
     cards.forEach(card => {
-      card.style.display = 'block'; // Ensure all cards are initially visible
+      card.style.display = '';
+      card.style.visibility = '';
+      card.style.opacity = '';
       card.classList.remove('slide-in-left', 'slide-in-right');
     });
+    
     // Set initial transform
-    cardsWrapper.style.transform = 'translateX(0%)';
+    if (cardsWrapper) {
+      cardsWrapper.style.transform = 'translateX(0px)';
+    }
+    
+    // Force a small delay to ensure DOM is ready, then show first set
+    setTimeout(() => {
+      showCard(0);
+    }, 50);
   }
 
   // Initialize

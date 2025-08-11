@@ -154,6 +154,14 @@
   margin: 0 auto;
 }
 
+/* Desktop specific container adjustments */
+@media (min-width: 901px) {
+  .seminar__carousel-container {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
 .seminar__cards-wrapper {
   display: flex;
   gap: 24px;
@@ -161,6 +169,17 @@
   justify-content: center;
   flex-wrap: nowrap;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Desktop specific wrapper adjustments */
+@media (min-width: 901px) {
+  .seminar__cards-wrapper {
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .seminar__card {
