@@ -391,24 +391,4 @@ a.header__nav-link:hover {
   }
 }
 
-/* Hero (MV) Section Styles */
-.mv {
-  position: relative;
-  width: 100%;
-  height: 450px;
-  overflow: hidden;
-}
-.mv__bg {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@media (max-width: 900px) {
-  .mv {
-    height: 340px;
-  }
-}
+/* Hero (MV) Section Styles - Moved to mv.css for better organization */

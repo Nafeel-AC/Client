@@ -9,18 +9,63 @@
 .seminar__bg {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
+  left: auto;
+  transform: none;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 240px;
+  font-size: 180px;
   font-weight: 700;
   color: rgba(120, 118, 111, 0.1);
   z-index: 1;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.2em;
   pointer-events: none;
   line-height: 1em;
-  text-align: center;
+  text-align: right;
   text-transform: uppercase;
+  width: 100%;
+}
+
+/* Responsive adjustments for SEMINAR background text */
+@media screen and (min-width: 1600px) {
+  .seminar__bg {
+    font-size: 200px;
+    letter-spacing: 0.25em;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  .seminar__bg {
+    font-size: 180px;
+    letter-spacing: 0.2em;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+  .seminar__bg {
+    font-size: 160px;
+    letter-spacing: 0.15em;
+  }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+  .seminar__bg {
+    font-size: 140px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .seminar__bg {
+    font-size: 220px;
+    letter-spacing: 0.3em;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .seminar__bg {
+    font-size: 240px;
+    letter-spacing: 0.35em;
+  }
 }
 
 .seminar__container {
@@ -267,8 +312,8 @@
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
+  color: #333;
+  background: transparent;
   padding: 8px 16px;
   border-radius: 20px;
   min-width: 60px;
