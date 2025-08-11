@@ -47,13 +47,13 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  align-items: center;
+  align-items: left;
 }
 
 .concept__header-icon {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   gap: 12px;
 }
 
@@ -94,7 +94,7 @@
   font-size: 16px;
   line-height: 2em;
   color: #333;
-  margin: 0;
+  margin: 0 0 50px 0;
 }
 
 /* Features Section */
@@ -102,7 +102,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  /* gap: 60px; */
 }
 
 .concept__feature {
@@ -111,6 +111,7 @@
   height: 400px;
   display: flex;
   align-items: center;
+  gap: 16px;
   margin-bottom: 40px;
 }
 
@@ -233,7 +234,8 @@
 }
 
 .concept__feature--2 .concept__feature-number {
-  right: 40px;
+  right: calc(50% - 500px + 40px); /* 500px is half of max-width: 1000px; 40px is the card padding */
+  left: auto;
   top: -50px;
 }
 
@@ -304,7 +306,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .concept__bg {
     font-size: 200px;
     text-align: left;
@@ -317,7 +319,7 @@
   
   .concept__feature-content {
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
     padding: 40px 20px;
   }
   
@@ -342,9 +344,10 @@
     max-width: 400px;
     height: 250px;
   }
-}
+} */
 
-@media (max-width: 900px) {
+/* working at this moment */
+@media (max-width: 1200px) {
   .concept {
     padding: 60px 20px;
   }
@@ -419,11 +422,12 @@
 
   .concept__feature--2 .concept__feature-number {
     position: absolute !important;
-    top: -25px;
-    right: 20px;
+    right: calc(50% - 150px + 20px) !important; /* 150px is half of max-width: 300px; 20px is the card padding */
     left: auto !important;
+    top: -25px !important;
+    transform: none !important;
     justify-content: flex-end;
-    margin: 0;
+    margin: 0 !important;
     order: 1;
     align-self: flex-end;
     width: auto;
@@ -448,7 +452,7 @@
   .concept__feature--3 .concept__feature-content {
     margin: 0 !important;
     border-radius: 10px !important;
-    padding: 30px 20px;
+    padding: 60px 20px;
     order: 2;
   }
   
