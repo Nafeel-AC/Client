@@ -17,12 +17,12 @@
   --mv-height-max: 700px;
   --strip-top-pos: 60px;
   --strip-bottom-pos: 160px;
-  --strip-width-top: 400px;
-  --strip-width-bottom: 450px;
-  --strip-height: 60px;
-  --text-size: 24px;
-  --text-left: 60px;
-  --text-right: 20px;
+  --strip-width-top: 700px;
+  --strip-width-bottom: 750px;
+  --strip-height: 120px;
+  --text-size: 32px;
+  --text-left: 100px;
+  --text-right: 40px;
   --desc-bottom: 20px;
   --desc-left: 20px;
   --desc-size: 12px;
@@ -38,12 +38,12 @@
     --mv-height-max: 800px;
     --strip-top-pos: 80px;
     --strip-bottom-pos: 180px;
-    --strip-width-top: 480px;
-    --strip-width-bottom: 540px;
-    --strip-height: 80px;
-    --text-size: 36px;
-    --text-left: 80px;
-    --text-right: 30px;
+    --strip-width-top: 700px;
+    --strip-width-bottom: 750px;
+    --strip-height: 110px;
+    --text-size: 42px;
+    --text-left: 100px;
+    --text-right: 40px;
     --desc-bottom: 40px;
     --desc-left: 30px;
     --desc-size: 16px;
@@ -60,12 +60,12 @@
     --mv-height-max: 700px;
     --strip-top-pos: 70px;
     --strip-bottom-pos: 170px;
-    --strip-width-top: 440px;
-    --strip-width-bottom: 490px;
-    --strip-height: 75px;
-    --text-size: 32px;
-    --text-left: 70px;
-    --text-right: 25px;
+    --strip-width-top: 650px;
+    --strip-width-bottom: 700px;
+    --strip-height: 100px;
+    --text-size: 36px;
+    --text-left: 90px;
+    --text-right: 35px;
     --desc-bottom: 35px;
     --desc-left: 25px;
     --desc-size: 15px;
@@ -82,12 +82,12 @@
     --mv-height-max: 680px;
     --strip-top-pos: 65px;
     --strip-bottom-pos: 160px;
-    --strip-width-top: 400px;
-    --strip-width-bottom: 450px;
-    --strip-height: 70px;
-    --text-size: 28px;
-    --text-left: 65px;
-    --text-right: 20px;
+    --strip-width-top: 600px;
+    --strip-width-bottom: 650px;
+    --strip-height: 95px;
+    --text-size: 32px;
+    --text-left: 85px;
+    --text-right: 30px;
     --desc-bottom: 30px;
     --desc-left: 20px;
     --desc-size: 14px;
@@ -108,8 +108,8 @@
     --strip-width-bottom: 420px;
     --strip-height: 65px;
     --text-size: 26px;
-    --text-left: 60px;
-    --text-right: 18px;
+    --text-left: 65px;
+    --text-right: 20px;
     --desc-bottom: 25px;
     --desc-left: 18px;
     --desc-size: 13px;
@@ -167,7 +167,8 @@
   position: absolute;
   background: white;
   left: 0;
-  height: var(--strip-height);
+  height: var(--strip-height) !important;
+  min-height: 120px !important;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -176,12 +177,20 @@
 
 .mv__white-strip--top {
   top: var(--strip-top-pos);
-  width: var(--strip-width-top);
+  width: 500px !important;
+  min-width: 500px !important;
+  top: 100px !important;
+  left: 0 !important;
+  right: auto !important;
 }
 
 .mv__white-strip--bottom {
   top: var(--strip-bottom-pos);
-  width: var(--strip-width-bottom);
+  width: 550px !important;
+  min-width: 550px !important;
+  top: 240px !important;
+  left: 0 !important;
+  right: auto !important;
 }
 
 .mv__white-strip--top .mv__strip-text {
@@ -189,20 +198,22 @@
 }
 
 .mv__white-strip--bottom .mv__strip-text {
-  right: 15px;
+  right: 0px !important;
 }
 
 .mv__strip-text {
   position: absolute;
-  left: var(--text-left);
-  right: var(--text-right);
+  left: auto !important;
+  right: 5px !important;
+  transform: none !important;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 700;
-  font-size: var(--text-size);
+  font-size: 64px !important;
+  min-font-size: 64px !important;
   letter-spacing: 0.05em;
   color: #000;
   line-height: 1.2;
-  text-align: right;
+  text-align: right !important;
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
@@ -257,13 +268,12 @@
 }
 
 .mv__rectangle-img {
-  width: 100%;
-  height: 100%;
-  max-width: var(--rect-max-width);
-  max-height: var(--rect-max-height);
+  width: 100% !important;
+  height: auto !important;
+  max-width: var(--rect-max-width) !important;
+  max-height: var(--rect-max-height) !important;
   display: block;
   object-fit: cover;
-  pointer-events: none;
 }
 
 .mv__text-content {
@@ -505,7 +515,7 @@
   
   .mv__white-strip {
     display: flex !important;
-    height: clamp(50px, 8vw, 60px);
+    height: clamp(70px, 10vw, 80px);
     background: white;
     position: absolute;
     left: 0;
@@ -515,19 +525,19 @@
   
   .mv__white-strip--top {
     top: clamp(180px, 35vw, 220px);
-    width: clamp(220px, 35vw, 280px);
+    width: clamp(280px, 45vw, 350px);
   }
   
   .mv__white-strip--bottom {
     top: clamp(250px, 45vw, 290px);
-    width: clamp(220px, 35vw, 280px);
+    width: clamp(280px, 45vw, 350px);
   }
   
   .mv__strip-text {
     position: absolute;
-    left: 15px;
-    right: 15px;
-    font-size: clamp(24px, 5vw, 32px);
+    left: 20px;
+    right: 20px;
+    font-size: clamp(28px, 6vw, 36px);
     font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
     font-weight: 700;
     letter-spacing: 0.05em;

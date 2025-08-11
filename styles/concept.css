@@ -320,11 +320,11 @@
 .concept__cta-btn {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
   background: linear-gradient(135deg, #F4B635 0%, #FF7300 100%);
   color: white;
   border: none;
-  padding: 19px 99px;
+  padding: 19px 40px;
   border-radius: 35.5px;
   cursor: pointer;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
@@ -381,15 +381,22 @@
   font-weight: 700;
   font-size: 25px;
   line-height: 1.2em;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  justify-content: center;
+  margin-right: 20px;
 }
 
 .concept__cta-arrow {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 0;
 }
 
 /* Responsive Design */
@@ -916,12 +923,29 @@
   .concept__cta-btn {
     width: auto;
     min-width: 280px;
-    padding: 15px 60px;
+    padding: 15px 80px;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
   }
   
   .concept__cta-text {
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .concept__cta-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: auto;
   }
 }
 
@@ -1041,13 +1065,25 @@
   }
   
   .concept__cta-btn {
-    min-width: 260px;
-    padding: 12px 50px;
-    font-size: 14px;
+    min-width: 280px;
+    padding: 15px 60px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
   }
   
   .concept__cta-text {
-    font-size: 16px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .concept__cta-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -1166,9 +1202,21 @@
     min-width: 240px;
     padding: 10px 40px;
     font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
   }
   
   .concept__cta-text {
     font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .concept__cta-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
