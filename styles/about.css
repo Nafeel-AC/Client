@@ -511,10 +511,147 @@
 }
 
 @media (max-width: 600px) {
-  .about__mission-bg { font-size: 60px; left: 0; text-align: center; }
-  .about__subtitle { font-size: 20px; }
-  .about__subdesc { font-size: 18px; }
-  .about__desc { font-size: 14px; padding: 0 8px; }
-  .about__carousel-slide { min-width: 100%; }
-  .about__carousel-img { width: 100%; max-width: 320px; aspect-ratio: 3/2; }
+  .about__mission-bg { 
+    font-size: 60px; 
+    left: 0; 
+    text-align: center; 
+    top: 20px;
+    line-height: 0.6;
+  }
+  
+  .about__subtitle { 
+    font-size: 20px; 
+    margin-bottom: 12px;
+    padding: 0 20px;
+  }
+  
+  .about__subdesc { 
+    font-size: 18px; 
+    margin-bottom: 24px;
+    padding: 0 20px;
+  }
+  
+  .about__desc { 
+    font-size: 14px; 
+    padding: 0 20px; 
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+  
+  .about__carousel-slide { 
+    min-width: 100%; 
+    margin: 0 auto;
+  }
+  
+  .about__carousel-img { 
+    width: 100%; 
+    max-width: 320px; 
+    aspect-ratio: 3/2; 
+    height: auto;
+  }
+  
+  .about__content {
+    padding: 40px 20px 30px 20px;
+  }
+  
+  .about__heading {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .about__heading-title {
+    font-size: 28px;
+  }
+  
+  .about__heading-icon {
+    width: 30px;
+    height: 2px;
+  }
+  
+  .about__cta-btn {
+    padding: 12px 60px;
+    font-size: 14px;
+    width: auto;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__mission-bg { 
+    font-size: 50px; 
+    top: 15px;
+  }
+  
+  .about__subtitle { 
+    font-size: 18px; 
+    padding: 0 15px;
+  }
+  
+  .about__subdesc { 
+    font-size: 16px; 
+    padding: 0 15px;
+  }
+  
+  .about__desc { 
+    font-size: 13px; 
+    padding: 0 15px; 
+  }
+  
+  .about__content {
+    padding: 30px 15px 20px 15px;
+  }
+  
+  .about__heading {
+    padding-left: 15px;
+  }
+  
+  .about__heading-title {
+    font-size: 24px;
+  }
+  
+  .about__cta-btn {
+    padding: 10px 50px;
+    font-size: 13px;
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 360px) {
+  .about__mission-bg { 
+    font-size: 40px; 
+    top: 10px;
+  }
+  
+  .about__subtitle { 
+    font-size: 16px; 
+    padding: 0 10px;
+  }
+  
+  .about__subdesc { 
+    font-size: 14px; 
+    padding: 0 10px;
+  }
+  
+  .about__desc { 
+    font-size: 12px; 
+    padding: 0 10px; 
+  }
+  
+  .about__content {
+    padding: 25px 10px 15px 10px;
+  }
+  
+  .about__heading {
+    padding-left: 10px;
+  }
+  
+  .about__heading-title {
+    font-size: 20px;
+  }
+  
+  .about__cta-btn {
+    padding: 8px 40px;
+    font-size: 12px;
+    min-width: 240px;
+  }
 }
