@@ -4,12 +4,13 @@
   min-height: 800px;
   background: #f5f5f0;
   overflow: hidden;
+  padding-top: 120px; /* Increase top padding to push the entire section down further */
   padding-bottom: 60px;
 }
 
 .about__mission-bg {
   position: absolute;
-  top: 0;
+  top: 160px; /* Adjust position to account for increased section padding */
   left: 0;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 240px;

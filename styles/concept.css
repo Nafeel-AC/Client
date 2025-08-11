@@ -154,7 +154,7 @@
 .concept__feature {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 360px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -178,8 +178,8 @@
   border-bottom-left-radius: 0;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding-left: 80px;
-  padding-right: 40px;
+  padding-left: 160px !important;
+  padding-right: 40px !important;
 }
 
 .concept__feature--2 {
@@ -196,8 +196,8 @@
 }
 
 .concept__feature--2 .concept__feature-content {
-  padding-left: 40px;
-  padding-right: 80px;
+  padding-left: 40px !important;
+  padding-right: 160px !important;
   margin-left: auto;
   margin-right: calc(-1 * var(--container-padding));
   border-top-left-radius: 10px;
@@ -207,8 +207,8 @@
 }
 
 .concept__feature--3 .concept__feature-content {
-  padding-left: 80px;
-  padding-right: 40px;
+  padding-left: 160px !important;
+  padding-right: 40px !important;
   margin-left: -40px !important;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -218,15 +218,15 @@
 
 .concept__feature-content {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   height: 100%;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 20px 0px rgba(60, 86, 52, 0.05);
   display: flex;
   align-items: center;
-  gap: 60px;
-  padding: 30px 20px;
+  gap: 70px;
+  padding: 60px 40px;
   position: relative;
 }
 
@@ -280,18 +280,18 @@
 
 .concept__feature--1 .concept__feature-number {
   left: 40px;
-  top: -10px;
+  top: -30px;
 }
 
 .concept__feature--2 .concept__feature-number {
   right: 40px;
   left: auto;
-  top: -10px;
+  top: -30px;
 }
 
 .concept__feature--3 .concept__feature-number {
   left: 40px;
-  top: -10px;
+  top: -30px;
 }
 
 .concept__number-label {
@@ -396,12 +396,12 @@
 /* Large Desktop - maintain proportions and positioning */
 @media screen and (min-width: 1600px) {
   .concept__feature {
-    height: 350px;
+    height: 390px;
   }
   
   .concept__feature-content {
-    gap: 70px;
-    padding: 35px 25px;
+    gap: 80px;
+    padding: 55px 35px;
   }
   
   .concept__feature-text {
@@ -439,12 +439,12 @@
 /* Standard Desktop - maintain consistent proportions */
 @media screen and (min-width: 1200px) and (max-width: 1599px) {
   .concept__feature {
-    height: 320px;
+    height: 360px;
   }
   
   .concept__feature-content {
-    gap: 60px;
-    padding: 30px 20px;
+    gap: 70px;
+    padding: 50px 30px;
   }
   
   .concept__feature-text {
@@ -482,12 +482,12 @@
 /* Medium Desktop - maintain layout integrity */
 @media screen and (min-width: 1025px) and (max-width: 1199px) {
   .concept__feature {
-    height: 300px;
+    height: 340px;
   }
   
   .concept__feature-content {
-    gap: 50px;
-    padding: 25px 18px;
+    gap: 60px;
+    padding: 45px 25px;
   }
   
   .concept__feature-text {
@@ -525,12 +525,12 @@
 /* Small Desktop - maintain proportions */
 @media screen and (min-width: 901px) and (max-width: 1024px) {
   .concept__feature {
-    height: 280px;
+    height: 320px;
   }
   
   .concept__feature-content {
-    gap: 45px;
-    padding: 22px 16px;
+    gap: 55px;
+    padding: 42px 22px;
   }
   
   .concept__feature-text {
@@ -568,12 +568,12 @@
 /* Ultra-wide desktop support - ensure consistency above 1920px */
 @media screen and (min-width: 1920px) {
   .concept__feature {
-    height: 380px;
+    height: 420px;
   }
   
   .concept__feature-content {
-    gap: 80px;
-    padding: 40px 30px;
+    gap: 90px;
+    padding: 60px 40px;
   }
   
   .concept__feature-text {
@@ -611,12 +611,12 @@
 /* Additional fix for very wide screens */
 @media screen and (min-width: 2000px) {
   .concept__feature {
-    height: 400px;
+    height: 440px;
   }
   
   .concept__feature-content {
-    gap: 90px;
-    padding: 45px 35px;
+    gap: 100px;
+    padding: 65px 45px;
   }
   
   .concept__feature-text {
@@ -655,38 +655,38 @@
 @media screen and (min-width: 901px) {
   .concept__feature--1 .concept__feature-number {
     left: 40px;
-    top: -10px;
+    top: -30px;
   }
   
   .concept__feature--2 .concept__feature-number {
     right: calc(50% - 500px + 40px); /* 500px is half of max-width: 1000px; 40px is the card padding */
     left: auto;
-    top: -10px;
+    top: -30px;
   }
   
   .concept__feature--3 .concept__feature-number {
     left: 40px;
-    top: -10px;
+    top: -30px;
   }
   
   .concept__feature--1 .concept__feature-content {
     margin-left: -40px !important;
     margin-right: 40px;
-    padding-left: 80px;
-    padding-right: 40px;
+    padding-left: 160px !important;
+    padding-right: 40px !important;
   }
   
   .concept__feature--2 .concept__feature-content {
     margin-left: auto;
     margin-right: calc(-1 * var(--container-padding));
-    padding-left: 40px;
-    padding-right: 80px;
+    padding-left: 40px !important;
+    padding-right: 160px !important;
   }
   
   .concept__feature--3 .concept__feature-content {
     margin-left: -40px !important;
-    padding-left: 80px;
-    padding-right: 40px;
+    padding-left: 160px !important;
+    padding-right: 40px !important;
   }
 }
 
@@ -727,6 +727,30 @@
     margin-top: 40px;
     flex-direction: column;
     align-items: center;
+    position: relative;
+  }
+  
+  /* Vertical alignment guides for mobile */
+  .concept__features::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 193, 7, 0.3);
+    z-index: 1;
+  }
+  
+  .concept__features::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 193, 7, 0.3);
+    z-index: 1;
   }
   
   .concept__feature {
@@ -742,6 +766,9 @@
     justify-content: center !important;
     padding: 0 !important;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .concept__feature-content {
@@ -749,36 +776,40 @@
     gap: 0;
     padding: 0;
     text-align: center;
-    background: #fff;
+    background: #f8f8f5;
     border-radius: 15px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     margin: 0 !important;
     border: none;
     overflow: hidden;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
-    min-height: 420px;
+    min-height: 450px;
     display: flex;
+    position: relative;
+    box-sizing: border-box;
   }
   
   .concept__feature-text {
     gap: 15px;
     order: 1;
     text-align: center;
-    padding: 20px 25px 15px 25px;
+    padding: 15px 25px 20px 25px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex: 1;
     max-width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 2;
   }
   
   .concept__feature-title {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1.4;
     font-weight: 700;
     color: #333;
@@ -786,16 +817,20 @@
     text-align: center;
     width: 100%;
     max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   
   .concept__feature-desc {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
-    color: #666;
+    color: #333;
     margin: 0;
-    text-align: center;
+    text-align: left;
     width: 100%;
     max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   
   .concept__feature-image {
@@ -810,6 +845,8 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
   }
   
   .concept__img {
@@ -822,7 +859,7 @@
   .concept__feature--1 .concept__feature-number,
   .concept__feature--3 .concept__feature-number {
     position: absolute;
-    top: 10px;
+    top: -15px;
     left: 20px;
     transform: none;
     height: auto;
@@ -836,11 +873,12 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    width: auto;
   }
   
   .concept__feature--2 .concept__feature-number {
     position: absolute;
-    top: 10px;
+    top: -15px;
     right: 20px;
     left: auto;
     transform: none;
@@ -855,19 +893,20 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    width: auto;
   }
   
   .concept__number-label {
     font-size: 14px;
     font-weight: 600;
-    color: #4CAF50;
+    color: #666;
     text-transform: uppercase;
   }
   
   .concept__number {
     font-size: 32px;
     font-weight: 700;
-    color: #2E7D32;
+    color: #3E752E;
   }
   
   .concept__cta {
@@ -928,11 +967,12 @@
     overflow: hidden;
     gap: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    min-height: 380px;
+    min-height: 400px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     border: none;
+    background: #f8f8f5;
   }
   
   .concept__feature-text {
@@ -941,20 +981,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex: 1;
+    gap: 15px;
   }
   
   .concept__feature-title {
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
     max-width: 100%;
   }
   
   .concept__feature-desc {
-    font-size: 13px;
+    font-size: 14px;
     width: 100%;
     max-width: 100%;
+    text-align: left;
   }
   
   .concept__feature-image {
@@ -978,22 +1020,24 @@
   
   .concept__feature--1 .concept__feature-number,
   .concept__feature--3 .concept__feature-number {
-    top: 10px;
+    top: -15px;
     left: 20px;
   }
   
   .concept__feature--2 .concept__feature-number {
-    top: 10px;
+    top: -15px;
     right: 20px;
     left: auto;
   }
   
   .concept__number-label {
     font-size: 13px;
+    color: #666;
   }
   
   .concept__number {
     font-size: 28px;
+    color: #3E752E;
   }
   
   .concept__cta-btn {
@@ -1049,11 +1093,12 @@
     overflow: hidden;
     gap: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    min-height: 360px;
+    min-height: 380px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     border: none;
+    background: #f8f8f5;
   }
   
   .concept__feature-text {
@@ -1062,16 +1107,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex: 1;
+    gap: 14px;
   }
   
   .concept__feature-title {
-    font-size: 16px;
+    font-size: 18px;
   }
   
   .concept__feature-desc {
-    font-size: 12px;
+    font-size: 13px;
+    text-align: left;
   }
   
   .concept__feature-image {
@@ -1095,22 +1142,24 @@
   
   .concept__feature--1 .concept__feature-number,
   .concept__feature--3 .concept__feature-number {
-    top: -10px;
+    top: 15px;
     left: 15px;
   }
   
   .concept__feature--2 .concept__feature-number {
-    top: -10px;
+    top: 15px;
     right: 15px;
     left: auto;
   }
   
   .concept__number-label {
     font-size: 12px;
+    color: #666;
   }
   
   .concept__number {
     font-size: 24px;
+    color: #3E752E;
   }
   
   .concept__cta-btn {
