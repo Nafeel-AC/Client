@@ -18,36 +18,34 @@ function initSeminarSection() {
   
   let currentIndex = 0;
   const totalCards = cards.length;
-  
+  const cardsPerSet = 4;
+  const totalSets = Math.ceil(totalCards / cardsPerSet);
+
   // Check if we're on mobile
   function isMobile() {
     return window.innerWidth <= 900;
   }
-  
+
   // Update counter display
   function updateCounter() {
     if (counter) {
       if (isMobile()) {
         counter.textContent = `${currentIndex + 1} / ${totalCards}`;
       } else {
-        const setIndex = Math.floor(currentIndex / 4);
-        counter.textContent = `${setIndex + 1} / 3`;
+        const setIndex = Math.floor(currentIndex / cardsPerSet);
+        counter.textContent = `${setIndex + 1} / ${totalSets}`;
       }
     }
   }
-  
+
   // Show specific card with smooth transition
   function showCard(index, direction = 'right') {
     if (index < 0 || index >= totalCards) return;
-    
     currentIndex = index;
-    
-    // Calculate transform for mobile single-card view
     if (isMobile()) {
       // In mobile, each card is 270px wide, so move by index * 270px
       const translateX = -(index * 270);
       cardsWrapper.style.transform = `translateX(${translateX}px)`;
-      
       // Add animation class to current card
       cards.forEach((card, i) => {
         card.classList.remove('slide-in-left', 'slide-in-right');
@@ -57,13 +55,11 @@ function initSeminarSection() {
       });
     } else {
       // Desktop: show 4 cards at once, grouped by sets
-      const setIndex = Math.floor(index / 4);
+      const setIndex = Math.floor(index / cardsPerSet);
       cardsWrapper.style.transform = `translateX(0%)`;
-      
-      // For desktop, we need to handle the display differently
       // Show only the current set of 4 cards
       cards.forEach((card, i) => {
-        const cardSetIndex = Math.floor(i / 4);
+        const cardSetIndex = Math.floor(i / cardsPerSet);
         if (cardSetIndex === setIndex) {
           card.style.display = 'block';
         } else {
@@ -71,15 +67,11 @@ function initSeminarSection() {
         }
       });
     }
-    
     updateCounter();
-    
-    // Update button states
     updateButtonStates();
-    
     console.log(`Showing card ${index + 1} of ${totalCards}`);
   }
-  
+
   // Update button states
   function updateButtonStates() {
     if (isMobile()) {
@@ -87,26 +79,23 @@ function initSeminarSection() {
         prevBtn.disabled = currentIndex === 0;
         prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
       }
-      
       if (nextBtn) {
         nextBtn.disabled = currentIndex === totalCards - 1;
         nextBtn.style.opacity = currentIndex === totalCards - 1 ? '0.5' : '1';
       }
     } else {
-      const setIndex = Math.floor(currentIndex / 4);
-      
+      const setIndex = Math.floor(currentIndex / cardsPerSet);
       if (prevBtn) {
         prevBtn.disabled = setIndex === 0;
         prevBtn.style.opacity = setIndex === 0 ? '0.5' : '1';
       }
-      
       if (nextBtn) {
-        nextBtn.disabled = setIndex === 2; // 3 sets total (0, 1, 2)
-        nextBtn.style.opacity = setIndex === 2 ? '0.5' : '1';
+        nextBtn.disabled = setIndex === totalSets - 1;
+        nextBtn.style.opacity = setIndex === totalSets - 1 ? '0.5' : '1';
       }
     }
   }
-  
+
   // Next button click
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
@@ -116,14 +105,14 @@ function initSeminarSection() {
         }
       } else {
         // Desktop: move to next set of 4 cards
-        const setIndex = Math.floor(currentIndex / 4);
-        if (setIndex < 2) { // 3 sets total (0, 1, 2)
-          showCard((setIndex + 1) * 4, 'right');
+        const setIndex = Math.floor(currentIndex / cardsPerSet);
+        if (setIndex < totalSets - 1) {
+          showCard((setIndex + 1) * cardsPerSet, 'right');
         }
       }
     });
   }
-  
+
   // Previous button click
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
@@ -133,31 +122,30 @@ function initSeminarSection() {
         }
       } else {
         // Desktop: move to previous set of 4 cards
-        const setIndex = Math.floor(currentIndex / 4);
+        const setIndex = Math.floor(currentIndex / cardsPerSet);
         if (setIndex > 0) {
-          showCard((setIndex - 1) * 4, 'left');
+          showCard((setIndex - 1) * cardsPerSet, 'left');
         }
       }
     });
   }
-  
+
   // Touch/swipe support for mobile
   let touchStartX = 0;
   let touchEndX = 0;
-  
+
   function handleTouchStart(e) {
     touchStartX = e.changedTouches[0].screenX;
   }
-  
+
   function handleTouchEnd(e) {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
   }
-  
+
   function handleSwipe() {
     const swipeThreshold = 50;
     const diff = touchStartX - touchEndX;
-    
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0 && currentIndex < totalCards - 1) {
         // Swipe left - next card
@@ -168,13 +156,13 @@ function initSeminarSection() {
       }
     }
   }
-  
+
   // Add touch events for mobile
   if (cardsWrapper) {
     cardsWrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
     cardsWrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
   }
-  
+
   // Card hover effects
   cards.forEach(card => {
     card.addEventListener('mouseenter', function() {
@@ -184,21 +172,19 @@ function initSeminarSection() {
         this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
       }
     });
-    
     card.addEventListener('mouseleave', function() {
       if (!isMobile()) {
         this.style.transform = 'translateY(0)';
         this.style.boxShadow = '0px 0px 10px 0px rgba(32, 134, 180, 0.2)';
       }
     });
-    
     // Card click functionality
     card.addEventListener('click', function() {
       console.log('Card clicked:', this.querySelector('.seminar__card-title')?.textContent);
       // Add your card click functionality here
     });
   });
-  
+
   // CTA button functionality
   const ctaBtn = seminarSection.querySelector('.seminar__cta-btn');
   if (ctaBtn) {
@@ -207,24 +193,22 @@ function initSeminarSection() {
       // Add your CTA button functionality here
     });
   }
-  
+
   // Initialize view
   function initializeView() {
     showCard(0);
-    
     // Reset any previous styles
     cards.forEach(card => {
       card.style.display = '';
       card.classList.remove('slide-in-left', 'slide-in-right');
     });
-    
     // Set initial transform
     cardsWrapper.style.transform = 'translateX(0%)';
   }
-  
+
   // Initialize
   initializeView();
-  
+
   // Handle window resize
   let resizeTimeout;
   window.addEventListener('resize', () => {
@@ -235,7 +219,7 @@ function initSeminarSection() {
       initializeView();
     }, 250);
   });
-  
+
   console.log('Seminar section initialized successfully');
 }
 
@@ -245,7 +229,6 @@ if (document.readyState === 'loading') {
 } else {
   initSeminarSection();
 }
-
 // Also try after a delay for dynamic loading
 setTimeout(initSeminarSection, 500);
 setTimeout(initSeminarSection, 1000);

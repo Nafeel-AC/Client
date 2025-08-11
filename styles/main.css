@@ -341,10 +341,10 @@ body {
     color: #fff;
   }
   
-  .header__external-text {
+  /* .header__external-text {
     font-size: 11px;
     display: none;
-  }
+  } */
 }
 
 /* Desktop: hide toggle and close button, normal inline nav */
