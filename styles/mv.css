@@ -1,1012 +1,299 @@
-/* Ensure consistent rendering across environments */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-
+  
 /* Font loading fallback */
 @font-face {
-  font-family: 'Noto Sans JP';
-  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-  font-display: swap;
-}
-
-/* CSS Custom Properties for consistent spacing and sizing */
-:root {
-  --mv-height-base: 30vw;
-  --mv-height-min: 400px;
-  --mv-height-max: 700px;
-  --strip-top-pos: 60px;
-  --strip-bottom-pos: 160px;
-  --strip-width-top: 700px;
-  --strip-width-bottom: 750px;
-  --strip-height: 120px;
-  --text-size: 32px;
-  --text-left: 100px;
-  --text-right: 40px;
-  --desc-bottom: 20px;
-  --desc-left: 20px;
-  --desc-size: 12px;
-  --rect-max-width: 900px;
-  --rect-max-height: 450px;
-}
-
-/* Large Desktop adjustments */
-@media screen and (min-width: 1600px) {
-  :root {
-    --mv-height-base: 28vw;
-    --mv-height-min: 450px;
-    --mv-height-max: 800px;
-    --strip-top-pos: 80px;
-    --strip-bottom-pos: 180px;
-    --strip-width-top: 700px;
-    --strip-width-bottom: 750px;
-    --strip-height: 110px;
-    --text-size: 42px;
-    --text-left: 100px;
-    --text-right: 40px;
-    --desc-bottom: 40px;
-    --desc-left: 30px;
-    --desc-size: 16px;
-    --rect-max-width: 1500px;
-    --rect-max-height: 750px;
-  }
-}
-
-/* Standard Desktop adjustments */
-@media screen and (min-width: 1200px) and (max-width: 1599px) {
-  :root {
-    --mv-height-base: 30vw;
-    --mv-height-min: 400px;
-    --mv-height-max: 700px;
-    --strip-top-pos: 70px;
-    --strip-bottom-pos: 170px;
-    --strip-width-top: 650px;
-    --strip-width-bottom: 700px;
-    --strip-height: 100px;
-    --text-size: 36px;
-    --text-left: 90px;
-    --text-right: 35px;
-    --desc-bottom: 35px;
-    --desc-left: 25px;
-    --desc-size: 15px;
-    --rect-max-width: 1200px;
-    --rect-max-height: 600px;
-  }
-}
-
-/* Medium Desktop adjustments */
-@media screen and (min-width: 1025px) and (max-width: 1199px) {
-  :root {
-    --mv-height-base: 32vw;
-    --mv-height-min: 380px;
-    --mv-height-max: 680px;
-    --strip-top-pos: 65px;
-    --strip-bottom-pos: 160px;
-    --strip-width-top: 600px;
-    --strip-width-bottom: 650px;
-    --strip-height: 95px;
-    --text-size: 32px;
-    --text-left: 85px;
-    --text-right: 30px;
-    --desc-bottom: 30px;
-    --desc-left: 20px;
-    --desc-size: 14px;
-    --rect-max-width: 1050px;
-    --rect-max-height: 525px;
-  }
-}
-
-/* Tablet adjustments */
-@media screen and (max-width: 1024px) {
-  :root {
-    --mv-height-base: 35vw;
-    --mv-height-min: 350px;
-    --mv-height-max: 450px;
-    --strip-top-pos: 60px;
-    --strip-bottom-pos: 150px;
-    --strip-width-top: 380px;
-    --strip-width-bottom: 420px;
-    --strip-height: 65px;
-    --text-size: 26px;
-    --text-left: 65px;
-    --text-right: 20px;
-    --desc-bottom: 25px;
-    --desc-left: 18px;
-    --desc-size: 13px;
-    --rect-max-width: 900px;
-    --rect-max-height: 450px;
-  }
+font-family: 'Noto Sans JP';
+src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+font-display: swap;
 }
 
 .mv {
-  position: relative;
-  width: 100%;
-  height: auto;
-  min-height: var(--mv-height-min);
-  max-height: none;
-  overflow: visible;
-  background: #F8F7F1;
-  box-sizing: border-box;
-  padding-bottom: 120px; /* Increase padding to create more downward space */
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 33vw;
+    max-height: none;
+    overflow: visible;
+    background: #F8F7F1;
+    box-sizing: border-box;
+    padding-bottom: 120px; /* Increase padding to create more downward space */
 }
 
 .mv__bg {
-  position: absolute;
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 130%; /* Extend background more to create additional downward space */
-  background: #d9d9d9;
-  background-size: 130% 130%; /* Match the height extension */
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
+position: absolute;
+top: 0; 
+left: 0; 
+width: 100%; 
+height: 130%; /* Extend background more to create additional downward space */
+background: #d9d9d9;
+background-size: 130% 130%; /* Match the height extension */
+background-position: center;
+background-repeat: no-repeat;
+z-index: 1;
 }
 
 .mv__overlay {
-  position: absolute;
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 130%; /* Match the background height extension */
-  background: rgba(234, 144, 74, 0.4);
-  z-index: 2;
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 130%; /* Match the background height extension */
+    background: rgba(234, 144, 74, 0.4);
+    z-index: 2;
 }
 
 .mv__white-strips {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-}
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
 .mv__white-strip {
-  position: absolute;
-  background: white;
-  left: 0;
-  height: var(--strip-height) !important;
-  min-height: 120px !important;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  pointer-events: none;
+    position: absolute;
+    background: white;
+    padding: 5px 2px 5px 10px;
+    left: 0;
+    /* height: var(--strip-height) !important; */
+    min-height: 8vw !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    box-sizing: border-box;
+    pointer-events: none;
 }
 
 .mv__white-strip--top {
-  top: var(--strip-top-pos);
-  width: 500px !important;
-  min-width: 500px !important;
-  top: 100px !important;
-  left: 0 !important;
-  right: auto !important;
-}
-
-.mv__white-strip--bottom {
-  top: var(--strip-bottom-pos);
-  width: 550px !important;
-  min-width: 550px !important;
-  top: 240px !important;
-  left: 0 !important;
-  right: auto !important;
-}
-
-.mv__white-strip--top .mv__strip-text {
-  right: clamp(3px, 0.3vw, 5px);
-}
-
-.mv__white-strip--bottom .mv__strip-text {
-  right: 0px !important;
-}
-
-.mv__strip-text {
-  position: absolute;
-  left: auto !important;
-  right: 5px !important;
-  transform: none !important;
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  font-weight: 700;
-  font-size: 64px !important;
-  min-font-size: 64px !important;
-  letter-spacing: 0.05em;
-  color: #000;
-  line-height: 1.2;
-  text-align: right !important;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  pointer-events: none;
-}
-
-.mv__strip-highlight {
-  color: #FF7300;
-}
-
-.mv__description-text {
-  position: absolute;
-  top: calc(var(--rect-max-height) - 70px); /* Position overlapping with the rectangle image */
-  left: var(--desc-left);
-  z-index: 4;
-  pointer-events: none;
-}
-
-.mv__description-text span {
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  font-weight: 700 !important; /* Make it bold with !important */
-  font-size: 35px !important; /* Make it even bigger with !important */
-  letter-spacing: 0.05em;
-  color: #fff;
-  line-height: 1.4;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.mv__content {
-  position: relative;
-  z-index: 4;
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 80px 0 0 0;
-  pointer-events: none;
-}
-
-.mv__rectangle-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  pointer-events: none;
-  width: var(--rect-max-width);
-  height: var(--rect-max-height);
-}
-
-.mv__rectangle-img {
-  width: 100% !important;
-  height: auto !important;
-  max-width: var(--rect-max-width) !important;
-  max-height: var(--rect-max-height) !important;
-  display: block;
-  object-fit: cover;
-}
-
-.mv__text-content {
-  position: relative;
-  z-index: 2;
-  margin-top: 20px;
-  margin-left: 0;
-  text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mv__title {
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  letter-spacing: 0.05em;
-  color: #000;
-  margin: 0 auto 16px auto;
-  line-height: 1.2;
-  text-align: center;
-  max-width: 800px;
-}
-
-.mv__title-highlight {
-  color: #FF7300;
-}
-
-.mv__subtitle {
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  letter-spacing: 0.05em;
-  color: #000;
-  margin: 0 auto 32px auto;
-  line-height: 1.2;
-  text-align: center;
-  max-width: 800px;
-}
-
-.mv__subtitle-highlight {
-  color: #FF7300;
-}
-
-.mv__description {
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.05em;
-  color: #666;
-  margin: 0 auto 16px auto;
-  line-height: 1.4;
-  text-align: center;
-  max-width: 700px;
-}
-
-/* Desktop breakpoints for consistent layout */
-/* Large Desktop - maintain proportions and positioning */
-@media screen and (min-width: 1600px) {
-  .mv {
-    height: 28vw;
-    min-height: 450px;
-    max-height: 600px;
-  }
-  
-  .mv__white-strip--top {
-    top: 80px;
-    width: 480px;
-    height: 80px;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 180px;
-    width: 540px;
-    height: 80px;
-  }
-  
-  .mv__strip-text {
-    font-size: 36px;
-    left: 80px;
-    right: 30px;
-  }
-  
-  .mv__rectangle-img {
-    max-width: 1500px;
-    max-height: 750px;
-  }
-  
-  .mv__description-text {
-    bottom: 40px;
-    left: 30px;
-  }
-  
-  .mv__description-text span {
-    font-size: 16px;
-  }
-}
-
-/* Standard Desktop - maintain consistent proportions */
-@media screen and (min-width: 1200px) and (max-width: 1599px) {
-  .mv {
-    height: 30vw;
-    min-height: 400px;
-    max-height: 500px;
-  }
-  
-  .mv__white-strip--top {
-    top: 70px;
-    width: 440px;
-    height: 75px;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 170px;
-    width: 490px;
-    height: 75px;
-  }
-  
-  .mv__strip-text {
-    font-size: 32px;
-    left: 70px;
-    right: 25px;
-  }
-  
-  .mv__rectangle-img {
-    max-width: 1200px;
-    max-height: 600px;
-  }
-  
-  .mv__description-text {
-    bottom: 35px;
-    left: 25px;
-  }
-  
-  .mv__description-text span {
-    font-size: 15px;
-  }
-}
-
-/* Medium Desktop - maintain layout integrity */
-@media screen and (min-width: 1025px) and (max-width: 1199px) {
-  .mv {
-    height: 32vw;
-    min-height: 380px;
-    max-height: 480px;
-  }
-  
-  .mv__white-strip--top {
-    top: 65px;
-    width: 400px;
-    height: 70px;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 160px;
-    width: 450px;
-    height: 70px;
-  }
-  
-  .mv__strip-text {
-    font-size: 28px;
-    left: 65px;
-    right: 20px;
-  }
-  
-  .mv__rectangle-img {
-    max-width: 1050px;
-    max-height: 525px;
-  }
-  
-  .mv__description-text {
-    bottom: 30px;
-    left: 20px;
-  }
-  
-  .mv__description-text span {
-    font-size: 14px;
-  }
-}
-
-/* Tablet and below */
-@media screen and (max-width: 1024px) {
-  .mv {
-    height: clamp(350px, 35vw, 450px);
-  }
-  
-  .mv__white-strip--top {
     top: 60px;
-    width: 380px;
-    height: 65px;
+    /* width: 4vw !important; */
+    min-width: 38vw !important;
+    top: 7vw !important;
+    left: 0 !important;
+    right: auto !important;
   }
   
   .mv__white-strip--bottom {
-    top: 150px;
-    width: 420px;
-    height: 65px;
+    top: 60px;
+    /* width: 550px !important; */
+    min-width: 41vw !important;
+    top: 20vw !important;
+    left: 0 !important;
+    right: auto !important;
   }
-  
-  .mv__strip-text {
-    font-size: 26px;
-    left: 60px;
-    right: 18px;
-  }
-  
-  .mv__rectangle-img {
-    max-width: 900px;
-    max-height: 450px;
-  }
-  
-  .mv__description-text {
-    bottom: 25px;
-    left: 18px;
-  }
-  
-  .mv__description-text span {
-    font-size: 13px;
-  }
-}
 
-/* Mobile styles */
-@media screen and (max-width: 900px) {
-  .mv {
-    height: clamp(300px, 60vw, 400px);
-    position: relative;
+
+  .mv__white-strip--top .mv__strip-text {
+    right: clamp(3px, 0.3vw, 5px);
   }
   
-  /* Hide content except overlay and white strips on mobile */
-  .mv__description-text,
-  .mv__content {
-    display: none !important;
-  }
-  
-  /* Show white strips on mobile */
-  .mv__white-strips {
-    display: block !important;
-    z-index: 15;
-  }
-  
-  .mv__white-strip {
-    display: flex !important;
-    height: clamp(70px, 10vw, 80px);
-    background: white;
-    position: absolute;
-    left: 0;
-    align-items: center;
-    box-sizing: border-box;
-  }
-  
-  .mv__white-strip--top {
-    top: clamp(180px, 35vw, 220px);
-    width: clamp(280px, 45vw, 350px);
-  }
-  
-  .mv__white-strip--bottom {
-    top: clamp(250px, 45vw, 290px);
-    width: clamp(280px, 45vw, 350px);
+  .mv__white-strip--bottom .mv__strip-text {
+    right: 0px !important;
   }
   
   .mv__strip-text {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    font-size: clamp(28px, 6vw, 36px);
+    /* position: absolute;
+    left: auto !important;
+    right: 5px !important;
+    transform: none !important; */
+    padding: 100px;
     font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
     font-weight: 700;
+    font-size: clamp(
+      20px,
+      calc(10px + (45) * ((100vw - 500px) / 1000)),
+      67px
+    ) !important;
+    /* min-font-size: 64px !important; */
     letter-spacing: 0.05em;
     color: #000;
-    line-height: 1.2;
-    text-align: center;
+    line-height: 1.1;
+    text-align: right !important;
     white-space: nowrap;
     overflow: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  .mv__white-strip--bottom .mv__strip-text {
-    left: 35px;
-    right: 5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    pointer-events: none;
   }
   
   .mv__strip-highlight {
     color: #FF7300;
   }
-  
-  /* Show the mobile view image */
-  .mv__bg {
-    background-image: url('../assets/mobile view.png') !important;
-    background-size: 130% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  /* Keep the orange overlay for mobile */
-  .mv__overlay {
-    display: block;
-    background: rgba(234, 144, 74, 0.4);
-  }
-  
-  /* Add mobile overlay image attached to left */
-  .mv::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 90vw;
-    height: 80vw;
-    background-image: url('../assets/mobilejskjd.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top left;
-    z-index: 10;
-  }
-}
 
-/* Ultra-wide desktop support - ensure consistency above 1595px */
-@media screen and (min-width: 1920px) {
-  .mv {
-    height: 25vw;
-    min-height: 500px;
-    max-height: 700px;
-  }
-  
-  .mv__white-strip--top {
-    top: 90px;
-    width: 520px;
-    height: 85px;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 200px;
-    width: 580px;
-    height: 85px;
-  }
-  
-  .mv__strip-text {
-    font-size: 40px;
-    left: 90px;
-    right: 35px;
-  }
-  
-  .mv__rectangle-img {
-    max-width: 1200px;
-    max-height: 600px;
-  }
-  
   .mv__description-text {
-    bottom: 50px;
-    left: 35px;
-  }
-  
-  .mv__description-text span {
-    font-size: 18px;
-  }
-}
-
-/* Ensure the rectangle image stays visible on all desktop sizes */
-@media screen and (min-width: 901px) {
-  .mv__rectangle-overlay {
     position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    pointer-events: none;
-    width: auto;
-    height: auto;
-  }
-  
-  .mv__rectangle-img {
-    display: block;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    pointer-events: none;
-  }
-}
-
-/* Critical fix for screens above 1595px - ensure white strips and image stay visible */
-@media screen and (min-width: 1595px) {
-  .mv__white-strips {
-    display: block !important;
-    z-index: 10;
-  }
-  
-  .mv__white-strip {
-    display: flex !important;
-  }
-  
-  .mv__white-strip--top {
-    top: 80px;
-    width: 480px;
-    height: 80px;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 180px;
-    width: 540px;
-    height: 80px;
-  }
-  
-  .mv__strip-text {
-    font-size: 36px;
-    left: 80px;
-    right: 30px;
-  }
-  
-  .mv__rectangle-overlay {
-    display: block !important;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-  }
-  
-  .mv__rectangle-img {
-    display: block !important;
-    max-width: 1000px;
-    max-height: 500px;
-  }
-  
-  .mv__description-text {
-    display: block !important;
-    bottom: 40px;
-    left: 30px;
+    /* top: calc(var(--rect-max-height) - 70px);  Position overlapping with the rectangle image */
+    bottom: -9vw;
+    left: 20px;
     z-index: 4;
+    pointer-events: none;
   }
-}
 
-/* Additional fix for very wide screens */
-@media screen and (min-width: 2000px) {
-  .mv {
-    height: 22vw;
-    min-height: 550px;
-    max-height: 800px;
-  }
-  
-  .mv__white-strip--top {
-    top: 100px;
-    width: 560px;
-    height: 90px;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 220px;
-    width: 620px;
-    height: 90px;
-  }
-  
-  .mv__strip-text {
-    font-size: 44px;
-    left: 100px;
-    right: 40px;
-  }
-  
-  .mv__rectangle-img {
-    max-width: 1400px;
-    max-height: 700px;
-  }
-  
-  .mv__description-text {
-    bottom: 60px;
-    left: 40px;
-  }
-  
   .mv__description-text span {
-    font-size: 20px;
-  }
-}
-
-/* Force display of critical elements on all desktop sizes */
-@media screen and (min-width: 901px) {
-  .mv__white-strips,
-  .mv__white-strip,
-  .mv__rectangle-overlay,
-  .mv__rectangle-img,
-  .mv__description-text {
-    display: block !important;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    font-weight: 700 !important; /* Make it bold with !important */
+    font-size: 35px !important; /* Make it even bigger with !important */
+    letter-spacing: 0.05em;
+    color: #fff;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
   }
   
-  .mv__white-strip {
-    display: flex !important;
-  }
-}
-
-/* Additional critical fixes for specific screen sizes */
-/* Fix for screens around 1595px width */
-@media screen and (min-width: 1595px) and (max-width: 1599px) {
-  .mv__white-strips {
-    display: block !important;
-    z-index: 10;
-  }
-  
-  .mv__white-strip {
-    display: flex !important;
-  }
-  
-  .mv__white-strip--top {
-    top: 80px !important;
-    width: 480px !important;
-    height: 80px !important;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 180px !important;
-    width: 540px !important;
-    height: 80px !important;
-  }
-  
-  .mv__strip-text {
-    font-size: 36px !important;
-    left: 80px !important;
-    right: 30px !important;
+  .mv__content {
+    position: relative;
+    z-index: 4;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 0 0 0;
+    pointer-events: none;
   }
   
   .mv__rectangle-overlay {
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    z-index: 1 !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+    width: 75%;
+    height: 75%;
   }
-  
-  .mv__rectangle-img {
-    display: block !important;
-    max-width: 1000px !important;
-    max-height: 500px !important;
-  }
-  
-  .mv__description-text {
-    display: block !important;
-    bottom: 40px !important;
-    left: 30px !important;
-    z-index: 4 !important;
-  }
-}
 
-/* Fix for screens above 1600px */
-@media screen and (min-width: 1600px) {
-  .mv__white-strips {
-    display: block !important;
-    z-index: 10;
+  @media screen and (max-width: 900px) {
+    .mv__description-text span {
+      font-size: 20px !important;
+    }
   }
-  
-  .mv__white-strip {
-    display: flex !important;
+  @media screen and (max-width: 500px) {
+    .mv__rectangle-overlay {
+      top: 0;
+      left: 0;
+      height: 50vh;
+      width: 90vw;
+      overflow: hidden;
+    }
+
+    .mv__rectangle-img {
+      height: 100%;
+      max-width: 70%;
+      object-fit: contain !important;
+      display: block;
+    }
+
+    
+    .mv__white-strip--top {
+      top: 27vh !important;
+      
+    }
+    
+    .mv__white-strip--bottom {
+      top: 37vh !important;
+    }
+
+    .mv__description-text span {
+      font-size: 17px !important;
+    }
+    .mv {
+      padding-bottom: 130px;
+    }
   }
-  
+
+@media screen and (max-width: 10px) {
   .mv__white-strip--top {
-    top: 80px !important;
-    width: 480px !important;
-    height: 80px !important;
+    top: 18vw !important;
   }
   
   .mv__white-strip--bottom {
-    top: 180px !important;
-    width: 540px !important;
-    height: 80px !important;
-  }
-  
-  .mv__strip-text {
-    font-size: 36px !important;
-    left: 80px !important;
-    right: 30px !important;
-  }
-  
-  .mv__rectangle-overlay {
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    z-index: 1 !important;
-  }
-  
-  .mv__rectangle-img {
-    display: block !important;
-    max-width: 1000px !important;
-    max-height: 500px !important;
-  }
-  
-  .mv__description-text {
-    display: block !important;
-    bottom: 40px !important;
-    left: 30px !important;
-    z-index: 4 !important;
+    top: 30vw !important;
   }
 }
 
-/* Fix for screens above 1920px */
-@media screen and (min-width: 1920px) {
-  .mv__white-strips {
-    display: block !important;
-    z-index: 10;
-  }
-  
-  .mv__white-strip {
-    display: flex !important;
-  }
-  
+@media screen and (max-width: 416px) {
   .mv__white-strip--top {
-    top: 90px !important;
-    width: 520px !important;
-    height: 85px !important;
+    top: 27vw !important;
+
   }
   
   .mv__white-strip--bottom {
-    top: 200px !important;
-    width: 580px !important;
-    height: 85px !important;
-  }
-  
-  .mv__strip-text {
-    font-size: 40px !important;
-    left: 90px !important;
-    right: 35px !important;
-  }
-  
-  .mv__rectangle-overlay {
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    z-index: 1 !important;
-  }
-  
-  .mv__rectangle-img {
-    display: block !important;
-    max-width: 1200px !important;
-    max-height: 600px !important;
-  }
-  
-  .mv__description-text {
-    display: block !important;
-    bottom: 50px !important;
-    left: 35px !important;
-    z-index: 4 !important;
-  }
-}
-/* Fix for screens above 2000px */
-@media screen and (min-width: 2000px) {
-  .mv__white-strips {
-    display: block !important;
-    z-index: 10;
-  }
-  
-  .mv__white-strip {
-    display: flex !important;
-  }
-  
-  .mv__white-strip--top {
-    top: 100px !important;
-    width: 560px !important;
-    height: 90px !important;
-  }
-  
-  .mv__white-strip--bottom {
-    top: 220px !important;
-    width: 620px !important;
-    height: 90px !important;
-  }
-  
-  .mv__strip-text {
-    font-size: 44px !important;
-    left: 100px !important;
-    right: 40px !important;
-  }
-  
-  .mv__rectangle-overlay {
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    z-index: 1 !important;
-  }
-  
-  .mv__rectangle-img {
-    display: block !important;
-    max-width: 1400px !important;
-    max-height: 700px !important;
-  }
-  
-  .mv__description-text {
-    display: block !important;
-    bottom: 60px !important;
-    left: 40px !important;
-    z-index: 4 !important;
+    top: 40vw !important;
   }
 }
 
-/* Ensure all critical elements are visible on desktop */
-@media screen and (min-width: 901px) {
-  .mv__white-strips,
-  .mv__white-strip,
-  .mv__rectangle-overlay,
-  .mv__rectangle-img,
-  .mv__description-text {
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  
-  .mv__white-strip {
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}
 
-/* Additional safety measures for very specific screen sizes */
-@media screen and (min-width: 1595px) {
-  .mv {
-    position: relative !important;
-    overflow: visible !important;
-  }
-  
-  .mv__white-strips {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
+
+
+
+
+  .mv__rectangle-img {
     width: 100% !important;
-    height: 100% !important;
-    z-index: 10 !important;
+    height: auto !important;
+    max-width: 1200px !important;
+    max-height: 900px !important;
+    display: block;
+    object-fit: cover;
+  }
+
+  
+.mv__text-content {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    margin-left: 0;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
-  .mv__rectangle-overlay {
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    z-index: 1 !important;
+  .mv__title {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 0.05em;
+    color: #000;
+    margin: 0 auto 16px auto;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 800px;
   }
   
-  .mv__description-text {
-    position: absolute !important;
-    bottom: 40px !important;
-    left: 30px !important;
-    z-index: 4 !important;
+  .mv__title-highlight {
+    color: #FF7300;
   }
-}
+  
+  .mv__subtitle {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 0.05em;
+    color: #000;
+    margin: 0 auto 32px auto;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 800px;
+  }
+  
+  .mv__subtitle-highlight {
+    color: #FF7300;
+  }
+  
+  .mv__description {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin: 0 auto 16px auto;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 700px;
+  }
