@@ -54,6 +54,35 @@
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .seminar .seminar__bg {
+    font-size: 140px !important;
+    letter-spacing: 0.15em;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .seminar .seminar__bg {
+    font-size: 120px !important;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  .seminar .seminar__bg {
+    font-size: 110px !important;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* Force override for specific screen size */
+@media screen and (max-width: 1061px) {
+  .seminar .seminar__bg {
+    font-size: 100px !important;
+    letter-spacing: 0.05em;
+  }
+}
+
 @media screen and (min-width: 1920px) {
   .seminar__bg {
     font-size: 220px;
@@ -368,13 +397,88 @@
   }
 }
 
-@media (max-width: 900px) {
+/* Tablet Responsive Styles - iPad Air optimization */
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .seminar {
+    padding: 50px 30px;
+  }
+  
+  .seminar__bg {
+    font-size: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+  }
+  
+  .seminar__container {
+    padding: 0 30px;
+    gap: 40px;
+  }
+  
+  .seminar__header {
+    margin-bottom: 20px;
+  }
+  
+  .seminar__title {
+    font-size: 26px;
+  }
+  
+  .seminar__slider {
+    height: 380px;
+    padding-top: 60px;
+  }
+  
+  .seminar__slider-bg {
+    height: 180px;
+  }
+  
+  .seminar__carousel-container {
+    max-width: 700px;
+    padding: 0 15px;
+  }
+  
+  .seminar__cards-wrapper {
+    gap: 20px;
+    padding: 60px 0 0 0;
+  }
+  
+  .seminar__card {
+    width: 220px;
+    height: 200px;
+  }
+  
+  .seminar__card-img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .seminar__carousel-nav {
+    top: 40px;
+  }
+  
+  .seminar__nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .seminar__cta-btn {
+    width: 300px;
+    height: 55px;
+  }
+  
+  .seminar__cta-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
   .seminar {
     padding: 60px 20px;
   }
   
   .seminar__bg {
-    font-size: 80px;
+    font-size: 60px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -411,7 +515,7 @@
   /* Show carousel navigation on mobile */
   .seminar__carousel-nav {
     display: flex !important;
-    top: -50px;
+    top: -30px;
   }
   
   .seminar__carousel-container {
@@ -479,6 +583,26 @@
   }
 }
 
+@media (max-width: 600px) {
+  .seminar__carousel-nav {
+    top: -20px;
+  }
+  
+  .seminar__slider {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seminar__carousel-nav {
+    top: -10px;
+  }
+  
+  .seminar__slider {
+    padding-top: 100px;
+  }
+}
+
 /* Mobile-specific animations */
 @media (max-width: 900px) {
   .seminar__card {
@@ -524,5 +648,51 @@
       opacity: 1;
       transform: translateX(0);
     }
+  }
+}
+
+/* FINAL OVERRIDES - Must be at the end to override all other rules */
+@media screen and (max-width: 1100px) {
+  section.seminar .seminar__bg {
+    font-size: 140px !important;
+    letter-spacing: 0.15em !important;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  section.seminar .seminar__bg {
+    font-size: 120px !important;
+    letter-spacing: 0.1em !important;
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  section.seminar .seminar__bg {
+    font-size: 110px !important;
+    letter-spacing: 0.08em !important;
+  }
+}
+
+@media screen and (max-width: 1061px) {
+  section.seminar .seminar__bg {
+    font-size: 100px !important;
+    letter-spacing: 0.05em !important;
+  }
+}
+
+/* FINAL MOBILE OVERRIDE for seminar */
+@media screen and (max-width: 450px) {
+  section.seminar .seminar__bg {
+    font-size: 60px !important;
+    letter-spacing: 0.05em !important;
+    text-align: center !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  section.seminar .seminar__bg {
+    font-size: 55px !important;
+    letter-spacing: 0.04em !important;
+    text-align: center !important;
   }
 }

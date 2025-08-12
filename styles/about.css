@@ -10,7 +10,7 @@
 
 .about__mission-bg {
   position: absolute;
-  top: 240px; /* Pushed down to prevent overlap with white strips above */
+  top: 160px; /* Adjusted down slightly from 120px for better positioning */
   left: 0;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 240px;
@@ -448,6 +448,7 @@
 @media (max-width: 1200px) {
   .about__mission-bg {
     font-size: 200px;
+    top: 140px;
   }
   
   .about__carousel {
@@ -470,9 +471,10 @@
   }
   
   .about__mission-bg {
-    font-size: 80px !important;
+    font-size: 70px !important;
     left: 0;
     text-align: center;
+    top: 160px;
   }
   
   .about__content {
@@ -513,10 +515,10 @@
 
 @media (max-width: 600px) {
   .about__mission-bg { 
-    font-size: 60px; 
+    font-size: 55px !important; 
     left: 0; 
     text-align: center; 
-    top: 100px;
+    top: 140px;
     line-height: 0.6;
   }
   
@@ -579,8 +581,8 @@
 
 @media (max-width: 480px) {
   .about__mission-bg { 
-    font-size: 50px; 
-    top: 80px;
+    font-size: 45px !important; 
+    top: 120px;
   }
   
   .about__subtitle { 
@@ -619,8 +621,8 @@
 
 @media (max-width: 360px) {
   .about__mission-bg { 
-    font-size: 40px; 
-    top: 10px;
+    font-size: 40px !important; 
+    top: 100px;
   }
   
   .about__subtitle { 
