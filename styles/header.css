@@ -312,12 +312,23 @@
   color: #fff;
   text-decoration: none;
   padding: 8px 0;
-  transition: opacity 0.2s;
   white-space: nowrap;
+  position: relative;
 }
 
-.header__nav-list li a:hover {
-  opacity: 0.8;
+.header__nav-list li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #FFFFFF;
+  transition: width 0.3s ease;
+}
+
+.header__nav-list li a:hover::after {
+  width: 100%;
 }
 
 .header__nav-btns {
@@ -342,8 +353,8 @@
 }
 
 .header__btn--primary {
-  color: #5E370F;
-  background: #FFFFFF;
+  color: #FFFFFF;
+  background: #FF7300;
 }
 
 .header__btn--secondary {
