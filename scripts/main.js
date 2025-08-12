@@ -11,8 +11,35 @@ sections.forEach(section => {
       link.rel = 'stylesheet';
       link.href = `styles/${section}.css`;
       document.head.appendChild(link);
+      
+      // Initialize PAGE TOP button after notice section is loaded
+      if (section === 'notice') {
+        setTimeout(() => {
+          initPageTopButton();
+        }, 100);
+      }
     });
 });
+
+// Global function to initialize PAGE TOP button
+function initPageTopButton() {
+  const pageTopBtn = document.querySelector('.notice__page-top');
+  
+  if (pageTopBtn && !pageTopBtn.hasAttribute('data-initialized')) {
+    pageTopBtn.setAttribute('data-initialized', 'true');
+    
+    pageTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('PAGE TOP button clicked - scrolling to top');
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    console.log('PAGE TOP button initialized successfully');
+  }
+}
 // Load section JS if needed
 sections.forEach(section => {
   const scriptPath = `scripts/${section}.js`;

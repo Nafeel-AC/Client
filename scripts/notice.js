@@ -1,24 +1,48 @@
 // Notice JS (placeholder for future interactivity)
 
-document.addEventListener('DOMContentLoaded', function() {
-  const noticeSection = document.querySelector('.notice');
-  if (!noticeSection) return;
-
-  // Page top button
-  const pageTopBtn = noticeSection.querySelector('.notice__page-top');
+function initPageTopButton() {
+  // Wait for notice section to be loaded
+  const checkForButton = () => {
+    const noticeSection = document.querySelector('.notice');
+    const pageTopBtn = document.querySelector('.notice__page-top');
+    
+    if (pageTopBtn && !pageTopBtn.hasAttribute('data-initialized')) {
+      // Mark as initialized to prevent duplicate listeners
+      pageTopBtn.setAttribute('data-initialized', 'true');
+      
+      pageTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('PAGE TOP button clicked'); // Debug log
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      console.log('PAGE TOP button initialized'); // Debug log
+    } else if (!pageTopBtn) {
+      // Try again after a short delay if button not found
+      setTimeout(checkForButton, 100);
+    }
+  };
   
+  checkForButton();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initPageTopButton();
+  
+  const noticeSection = document.querySelector('.notice');
+  if (!noticeSection) {
+    // If notice section not found, try again after delay
+    setTimeout(() => {
+      initPageTopButton();
+    }, 500);
+    return;
+  }
+
   // News items
   const newsItems = noticeSection.querySelectorAll('.notice__news-item');
-
-  // Page top functionality
-  if (pageTopBtn) {
-    pageTopBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
 
   // News item click handlers
   newsItems.forEach((item, index) => {
