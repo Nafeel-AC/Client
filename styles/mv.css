@@ -18,7 +18,7 @@ font-display: swap;
     overflow: visible;
     background: #F8F7F1;
     box-sizing: border-box;
-    padding-bottom: 120px; /* Increase padding to create more downward space */
+    padding-bottom: 0; /* Remove bottom padding to eliminate white space */
 }
 
 .mv__bg {
@@ -193,7 +193,7 @@ z-index: 1;
       font-size: 17px !important;
     }
     .mv {
-      padding-bottom: 130px;
+      padding-bottom: 0;
     }
   }
 

@@ -161,6 +161,9 @@
   line-height: 1.2em;
   letter-spacing: 0.1em;
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contact__btn-arrow {
@@ -200,6 +203,9 @@
   
   .contact__btn-text {
     font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -228,6 +234,9 @@
   
   .contact__btn-text {
     font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -256,6 +265,9 @@
   
   .contact__btn-text {
     font-size: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -284,6 +296,9 @@
   
   .contact__btn-text {
     font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -325,6 +340,9 @@
   
   .contact__btn-text {
     font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -335,12 +353,15 @@
   }
   
   .contact__btn { 
-    width: 240px; 
+    width: 280px; 
     padding: 16px 24px; 
   }
   
   .contact__btn-text {
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .contact__heading-title {

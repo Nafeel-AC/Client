@@ -514,7 +514,15 @@
 }
 
 @media (max-width: 600px) {
-  .about__mission-bg { 
+  .about__cta-btn {
+    padding: 10px 25px;
+    font-size: 14px;
+    width: fit-content;
+    min-width: auto;
+    max-width: none;
+  }
+  
+  .about__mission-bg {
     font-size: 55px !important; 
     left: 0; 
     text-align: center; 
@@ -571,12 +579,6 @@
     height: 2px;
   }
   
-  .about__cta-btn {
-    padding: 12px 60px;
-    font-size: 14px;
-    width: auto;
-    min-width: 280px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -613,9 +615,11 @@
   }
   
   .about__cta-btn {
-    padding: 10px 50px;
+    padding: 8px 25px;
     font-size: 13px;
-    min-width: 260px;
+    width: fit-content;
+    min-width: auto;
+    max-width: none;
   }
 }
 
@@ -653,8 +657,10 @@
   }
   
   .about__cta-btn {
-    padding: 8px 40px;
+    padding: 6px 20px;
     font-size: 12px;
-    min-width: 240px;
+    width: fit-content;
+    min-width: auto;
+    max-width: none;
   }
 }
