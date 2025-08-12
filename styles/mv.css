@@ -189,21 +189,22 @@ z-index: 1;
       display: block;
     }
 
-    
-    .mv__white-strip--top {
-      top: 27vh !important;
-      
-    }
-    
-    .mv__white-strip--bottom {
-      top: 37vh !important;
-    }
-
     .mv__description-text span {
       font-size: 17px !important;
     }
     .mv {
       padding-bottom: 130px;
+    }
+  }
+
+  /* Smooth transition for strips positioning */
+  @media screen and (max-width: 500px) and (min-width: 497px) {
+    .mv__white-strip--top {
+      top: 24vw !important;
+    }
+    
+    .mv__white-strip--bottom {
+      top: 36vw !important;
     }
   }
 
@@ -217,10 +218,20 @@ z-index: 1;
   }
 }
 
+/* Fix positioning between 496px and 402px */
+@media screen and (max-width: 496px) and (min-width: 403px) {
+  .mv__white-strip--top {
+    top: 25vw !important;
+  }
+  
+  .mv__white-strip--bottom {
+    top: 38vw !important;
+  }
+}
+
 @media screen and (max-width: 416px) {
   .mv__white-strip--top {
     top: 27vw !important;
-
   }
   
   .mv__white-strip--bottom {
