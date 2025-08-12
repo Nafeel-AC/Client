@@ -912,7 +912,6 @@
     z-index: 4 !important;
   }
 }
-
 /* Fix for screens above 2000px */
 @media screen and (min-width: 2000px) {
   .mv__white-strips {
