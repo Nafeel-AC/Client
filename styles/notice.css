@@ -186,40 +186,43 @@
 }
 
 .notice__page-top {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 65px;
-  height: 65px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid #333;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 80px;
+  height: 80px;
+  background: #FFFFFF;
+  border: 2px solid #333333;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  transition: background-color 0.3s ease;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .notice__page-top:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: #F8F8F8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .notice__page-top-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 18px;
 }
 
 .notice__page-top-text {
-  font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 600;
-  font-size: 8px;
-  line-height: 1.5em;
-  color: #333;
-  margin-top: 9px;
+  font-size: 10px;
+  line-height: 1.2em;
+  color: #333333;
+  letter-spacing: 0.5px;
 }
 
 /* Responsive Design */
@@ -300,16 +303,17 @@
     position: fixed;
     right: 20px;
     bottom: 20px;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    gap: 6px;
   }
   
-  .notice__page-top-icon {
-    margin-top: 12px;
+  .notice__page-top-icon svg {
+    width: 16px;
+    height: 10px;
   }
   
   .notice__page-top-text {
-    font-size: 7px;
-    margin-top: 6px;
+    font-size: 8px;
   }
 }
