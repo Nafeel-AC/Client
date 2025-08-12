@@ -274,8 +274,8 @@
   position: absolute;
   inset: 0;
   border-radius: 50px;
-  padding: 2px;
-  background: linear-gradient(90deg, #F4B635 0%, #FF7300 100%);
+  padding: 2px; /* border thickness */
+  background: linear-gradient(135deg, #FF7300 0%, #F4B635 100%);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box, 
     linear-gradient(#fff 0 0);
@@ -318,7 +318,12 @@
 }
 
 .voice__cta-icon {
-  transition: all 0.3s ease;
+  transition: fill 0.3s, color 0.3s;
+}
+
+.voice__cta-btn:hover .voice__cta-icon {
+  color: #FF7300;
+  fill: #FF7300;
 }
 
 /* Responsive Design */
