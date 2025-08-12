@@ -8,7 +8,7 @@
 
 .voice__bg {
   position: absolute;
-  top: 0;
+  top: 250px;
   left: 0;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 240px;
@@ -244,7 +244,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 32px;
+  margin-top: 0;
+  margin-bottom: 48px;
 }
 
 .voice__cta-btn {
@@ -330,6 +331,7 @@
 @media (max-width: 1200px) {
   .voice__bg {
     font-size: 200px;
+    top: 200px;
   }
   
   .voice__container {
