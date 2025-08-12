@@ -245,9 +245,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 32px;
-  padding: 20px;
-  border: 2px solid red;
-  background: rgba(255, 0, 0, 0.1);
 }
 
 .voice__cta-btn {
