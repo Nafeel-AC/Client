@@ -8,7 +8,7 @@
 
 .voice__bg {
   position: absolute;
-  top: 250px;
+  top: 80px;
   left: 0;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 240px;
@@ -331,7 +331,7 @@
 @media (max-width: 1200px) {
   .voice__bg {
     font-size: 200px;
-    top: 200px;
+    top: 60px;
   }
   
   .voice__container {
