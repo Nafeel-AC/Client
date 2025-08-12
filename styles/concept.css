@@ -735,29 +735,17 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
-  /* Vertical alignment guides for mobile */
-  .concept__features::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: rgba(255, 193, 7, 0.3);
-    z-index: 1;
-  }
-  
+  /* Remove vertical guide lines on mobile */
+  .concept__features::before,
   .concept__features::after {
-    content: '';
-    position: absolute;
-    right: 20px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: rgba(255, 193, 7, 0.3);
-    z-index: 1;
+    content: none !important;
+    display: none !important;
   }
   
   .concept__feature {
@@ -769,46 +757,56 @@
     border-radius: 0;
     box-shadow: none;
     width: 100%;
-    max-width: 360px;
-    justify-content: center !important;
+    max-width: 320px; /* lock to a consistent card width for centering */
     padding: 0 !important;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* ensure true centering without inner flex quirks */
+    box-sizing: border-box;
+    align-self: center;
   }
   
-  .concept__feature-content {
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    text-align: center;
-    background: #f8f8f5;
-    border-radius: 15px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  /* Use higher specificity to override desktop !important declarations */
+  .concept__feature .concept__feature-content {
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    background: #f8f8f5 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
     margin: 0 !important;
-    border: none;
-    overflow: hidden;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    min-height: 450px;
-    display: flex;
-    position: relative;
-    box-sizing: border-box;
+    border: none !important;
+    overflow: hidden !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    min-height: auto !important;
+    display: flex !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Override desktop card paddings with higher specificity */
+  .concept__feature.concept__feature--1 .concept__feature-content,
+  .concept__feature.concept__feature--2 .concept__feature-content,
+  .concept__feature.concept__feature--3 .concept__feature-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
   .concept__feature-text {
     gap: 15px;
     order: 1;
     text-align: center;
-    padding: 15px 25px 20px 25px;
+    padding: 20px 20px 16px 20px;
+    padding-top: 60px; /* leave room for POINT badge */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    flex: 1;
+    flex: 0 0 auto;
     max-width: 100%;
     box-sizing: border-box;
     position: relative;
@@ -816,28 +814,45 @@
   }
   
   .concept__feature-title {
-    font-size: 22px;
-    line-height: 1.4;
+    font-size: 20px;
+    line-height: 1.5;
     font-weight: 700;
     color: #333;
     margin: 0;
     text-align: center;
     width: 100%;
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0;
     box-sizing: border-box;
   }
   
   .concept__feature-desc {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.7;
     color: #333;
     margin: 0;
     text-align: left;
     width: 100%;
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0;
     box-sizing: border-box;
+  }
+  
+  /* Right-align titles for cards 1 and 3, left-align for card 2 */
+  .concept__feature.concept__feature--1 .concept__feature-title,
+  .concept__feature.concept__feature--3 .concept__feature-title {
+    text-align: right !important;
+  }
+  
+  .concept__feature.concept__feature--2 .concept__feature-title {
+    text-align: left !important;
+  }
+  
+  /* Left-align all descriptions */
+  .concept__feature.concept__feature--1 .concept__feature-desc,
+  .concept__feature.concept__feature--2 .concept__feature-desc,
+  .concept__feature.concept__feature--3 .concept__feature-desc {
+    text-align: left !important;
   }
   
   .concept__feature-image {
@@ -847,7 +862,7 @@
     order: 2;
     border-radius: 0 !important;
     overflow: hidden;
-    margin: 0;
+    margin: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -863,57 +878,69 @@
     border-radius: 0 !important;
   }
   
-  .concept__feature--1 .concept__feature-number,
-  .concept__feature--3 .concept__feature-number {
-    position: absolute;
-    top: -15px;
-    left: 20px;
-    transform: none;
-    height: auto;
-    justify-content: flex-start;
-    margin-bottom: 0;
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: auto;
+  /* Add bottom spacing to the card content to create space below image */
+  .concept__feature .concept__feature-content {
+    padding: 0 20px 40px 20px !important;
   }
   
-  .concept__feature--2 .concept__feature-number {
-    position: absolute;
-    top: -15px;
-    right: 20px;
-    left: auto;
-    transform: none;
-    height: auto;
-    justify-content: flex-start;
-    margin-bottom: 0;
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: auto;
+  /* Override desktop positioning with higher specificity - POINT label in top-left */
+  .concept__feature.concept__feature--1 .concept__feature-number,
+  .concept__feature.concept__feature--3 .concept__feature-number {
+    position: absolute !important;
+    top: -20px !important;
+    left: 20px !important;
+    transform: none !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    z-index: 10 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: auto !important;
+    flex-direction: row !important;
+  }
+  
+  .concept__feature.concept__feature--2 .concept__feature-number {
+    position: absolute !important;
+    top: -20px !important;
+    right: 20px !important;
+    left: auto !important;
+    transform: none !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    z-index: 10 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: auto !important;
+    flex-direction: row !important;
   }
   
   .concept__number-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #666;
+    font-size: 13px;
+    font-weight: 700;
+    color: #3E752E;
     text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
   }
   
   .concept__number {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
     color: #3E752E;
+    line-height: 1;
+    margin: 0;
   }
   
   .concept__cta {
@@ -978,29 +1005,33 @@
   }
   
   .concept__feature {
-    max-width: 340px;
+    max-width: 300px;
     justify-content: center !important;
     padding: 0 !important;
     margin: 0 auto;
   }
   
-  .concept__feature-content {
-    padding: 0;
+  /* Use higher specificity to override desktop styles */
+  .concept__feature .concept__feature-content {
+    padding: 0 20px 40px 20px !important;
     margin: 0 !important;
-    border-radius: 15px !important;
-    overflow: hidden;
-    gap: 0;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    min-height: 400px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    border: none;
-    background: #f8f8f5;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    min-height: 400px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+    border: none !important;
+    background: #f8f8f5 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   
   .concept__feature-text {
-    padding: 15px 20px 20px 20px;
+    padding: 20px 20px 16px 20px;
+    padding-top: 56px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1014,6 +1045,17 @@
     font-size: 20px;
     width: 100%;
     max-width: 100%;
+    text-align: center;
+  }
+  
+  /* Right-align titles for cards 1 and 3, left-align for card 2 */
+  .concept__feature.concept__feature--1 .concept__feature-title,
+  .concept__feature.concept__feature--3 .concept__feature-title {
+    text-align: right !important;
+  }
+  
+  .concept__feature.concept__feature--2 .concept__feature-title {
+    text-align: left !important;
   }
   
   .concept__feature-desc {
@@ -1023,12 +1065,19 @@
     text-align: left;
   }
   
+  /* Left-align all descriptions */
+  .concept__feature.concept__feature--1 .concept__feature-desc,
+  .concept__feature.concept__feature--2 .concept__feature-desc,
+  .concept__feature.concept__feature--3 .concept__feature-desc {
+    text-align: left !important;
+  }
+  
   .concept__feature-image {
     width: 100% !important;
     max-width: 100% !important;
-    height: 200px !important;
+    height: 180px !important;
     border-radius: 0 !important;
-    margin: 0;
+    margin: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1044,23 +1093,25 @@
   
   .concept__feature--1 .concept__feature-number,
   .concept__feature--3 .concept__feature-number {
-    top: -15px;
+    top: -20px;
     left: 20px;
   }
   
   .concept__feature--2 .concept__feature-number {
-    top: -15px;
+    top: -20px;
     right: 20px;
     left: auto;
   }
   
   .concept__number-label {
     font-size: 13px;
-    color: #666;
+    font-weight: 700;
+    color: #3E752E;
   }
   
   .concept__number {
-    font-size: 28px;
+    font-size: 30px;
+    font-weight: 700;
     color: #3E752E;
   }
   
@@ -1122,23 +1173,25 @@
     margin: 0 auto;
   }
   
-  .concept__feature-content {
-    padding: 0;
+  /* Use higher specificity to override desktop styles */
+  .concept__feature .concept__feature-content {
+    padding: 0 20px 40px 20px !important;
     margin: 0 !important;
-    border-radius: 15px !important;
-    overflow: hidden;
-    gap: 0;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    min-height: 380px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    border: none;
-    background: #f8f8f5;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    gap: 0 !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    min-height: 380px !important;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1) !important;
+    border: none !important;
+    background: #f8f8f5 !important;
   }
   
   .concept__feature-text {
-    padding: 12px 18px 18px 18px;
+    padding: 18px 18px 16px 18px;
+    padding-top: 52px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1150,6 +1203,17 @@
   
   .concept__feature-title {
     font-size: 18px;
+    text-align: center;
+  }
+  
+  /* Right-align titles for cards 1 and 3, left-align for card 2 */
+  .concept__feature.concept__feature--1 .concept__feature-title,
+  .concept__feature.concept__feature--3 .concept__feature-title {
+    text-align: right !important;
+  }
+  
+  .concept__feature.concept__feature--2 .concept__feature-title {
+    text-align: left !important;
   }
   
   .concept__feature-desc {
@@ -1157,12 +1221,19 @@
     text-align: left;
   }
   
+  /* Left-align all descriptions */
+  .concept__feature.concept__feature--1 .concept__feature-desc,
+  .concept__feature.concept__feature--2 .concept__feature-desc,
+  .concept__feature.concept__feature--3 .concept__feature-desc {
+    text-align: left !important;
+  }
+  
   .concept__feature-image {
     width: 100% !important;
     max-width: 100% !important;
     height: 180px !important;
     border-radius: 0 !important;
-    margin: 0;
+    margin: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1178,19 +1249,19 @@
   
   .concept__feature--1 .concept__feature-number,
   .concept__feature--3 .concept__feature-number {
-    top: 15px;
-    left: 15px;
+    top: -20px;
+    left: 18px;
   }
   
   .concept__feature--2 .concept__feature-number {
-    top: 15px;
-    right: 15px;
+    top: -20px;
+    right: 18px;
     left: auto;
   }
   
   .concept__number-label {
     font-size: 12px;
-    color: #666;
+    color: #3E752E;
   }
   
   .concept__number {

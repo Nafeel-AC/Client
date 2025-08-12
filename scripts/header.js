@@ -1,29 +1,47 @@
-// Mobile menu toggle
+// Header JavaScript functionality
 document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.querySelector('.header__menu-toggle');
-  const nav = document.getElementById('headerNav');
-  if (!toggle || !nav) return;
-
-  function setExpanded(expanded) {
-    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    nav.classList.toggle('is-open', expanded);
-    document.body.style.overflow = expanded ? 'hidden' : '';
-    document.body.classList.toggle('menu-open', expanded);
+  const menuToggle = document.querySelector('.header__menu-toggle');
+  const body = document.body;
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      console.log('Hamburger menu clicked');
+      
+      // Toggle menu-open class on body
+      body.classList.toggle('menu-open');
+      
+      // Add animation to hamburger lines
+      const lines = this.querySelectorAll('.header__menu-toggle-line');
+      lines.forEach((line, index) => {
+        if (body.classList.contains('menu-open')) {
+          // Transform to X when menu is open
+          if (index === 0) {
+            line.style.transform = 'rotate(45deg) translate(5px, 5px)';
+          } else if (index === 1) {
+            line.style.opacity = '0';
+          } else if (index === 2) {
+            line.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+          }
+        } else {
+          // Reset to hamburger when menu is closed
+          line.style.transform = 'none';
+          line.style.opacity = '1';
+        }
+      });
+    });
   }
-
-  toggle.addEventListener('click', () => {
-    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-    setExpanded(!isOpen);
-  });
-
-  // Close on link click
-  nav.addEventListener('click', (e) => {
-    const link = e.target.closest('a, button');
-    if (link) setExpanded(false);
-  });
-
-  // Close on ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setExpanded(false);
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.header__menu-toggle') && body.classList.contains('menu-open')) {
+      body.classList.remove('menu-open');
+      
+      // Reset hamburger lines
+      const lines = document.querySelectorAll('.header__menu-toggle-line');
+      lines.forEach(line => {
+        line.style.transform = 'none';
+        line.style.opacity = '1';
+      });
+    }
   });
 });
